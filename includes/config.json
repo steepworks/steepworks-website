@@ -1,0 +1,19 @@
+{
+  "siteName": "Steep Works",
+  "siteEmail": "projects@steepworks.co.nz",
+  "siteAddress": "Christchurch, Canterbury 8022, NZ",
+  "siteIndustry": "Civil Engineering",
+  "siteDescription": "Specialist excavation services using spider digger technology",
+  "socialMedia": {
+    "facebook": "https://www.facebook.com/SteepWorks",
+    "linkedin": "#",
+    "instagram": "#"
+  },
+  "services": [
+    "Excavation",
+    "Drilling",
+    "Trenching",
+    "Landscaping",
+    "Demolition"
+  ]
+}
