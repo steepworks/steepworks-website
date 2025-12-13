@@ -1,0 +1,13 @@
+:change:
+
+commercial -> excavation
+ 
+
+:rename gallery with projects
+
+:fix color and appearance of homepage
+
+:projects, only 2 pictures x line
+
+
+

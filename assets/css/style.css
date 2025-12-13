@@ -437,3 +437,13 @@ footer {
         height: 300px;
     }
 }
+
+/* Adjust spacing after testimonials removal */
+.project-showcase {
+    margin-bottom: 2rem;
+}
+
+.cta-section {
+    padding-top: 3.5rem;
+    padding-bottom: 3rem;
+}
