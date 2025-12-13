@@ -1,18 +1,18 @@
 # Steep Works Website
 
-A professional static website for Steep Works, a specialist civil 
-engineering company based in Christchurch, Canterbury, specializing in 
+A professional static website for Steep Works, a specialist civil
+engineering company based in Christchurch, Canterbury, specializing in
 spider digger technology for challenging terrain excavation.
-
 
 ## GitHub Pages Deployment
 
-This website is configured to deploy automatically to GitHub Pages from 
+This website is configured to deploy automatically to GitHub Pages from
 the `html` branch.
 
 ### Setup Instructions
 
 1. **Enable GitHub Pages:**
+
    - Go to your repository Settings
    - Navigate to "Pages" section
    - Under "Build and deployment":
@@ -20,6 +20,7 @@ the `html` branch.
    - The workflow will deploy automatically
 
 2. **Custom Domain Configuration:**
+
    - The CNAME file is already configured with `steepworks.co.nz`
    - In your domain registrar (e.g., Namecheap, GoDaddy):
      - Add an A record pointing to GitHub Pages IPs:
@@ -27,8 +28,8 @@ the `html` branch.
        - 185.199.109.153
        - 185.199.110.153
        - 185.199.111.153
-     - Add a CNAME record for www pointing to 
-     `<your-username>.github.io`
+     - Add a CNAME record for www pointing to
+       `<your-username>.github.io`
    - Wait for DNS propagation (can take up to 48 hours)
 
 3. **Push to Deploy:**
@@ -38,7 +39,7 @@ the `html` branch.
    git push origin html
    ```
 
-The GitHub Actions workflow will automatically build and deploy your 
+The GitHub Actions workflow will automatically build and deploy your
 site.
 
 ## Local Development
@@ -54,7 +55,7 @@ To view the site locally:
 
 ## Contact Form
 
-The contact form uses a mailto: link to open the user's default email 
+The contact form uses a mailto: link to open the user's default email
 client. For production, consider integrating a service like:
 
 - **Formspree** (https://formspree.io) - Free tier available
@@ -85,7 +86,7 @@ client. For production, consider integrating a service like:
 steepworks-website/
 ├── index.html
 ├── about.html
-├── gallery.html
+├── projects.html
 ├── contact.html
 ├── CNAME
 ├── LICENSE
@@ -97,7 +98,7 @@ steepworks-website/
 │   ├── css/
 │   │   └── style.css
 │   └── js/
-│       ├── gallery.js
+│       ├── projects.js
 │       ├── main.js
 │       └── components.js (optional dynamic loader)
 ├── static/
@@ -119,9 +120,9 @@ The `includes/` directory contains reusable HTML components:
 - **footer.html** - Site footer (reference copy)
 - **config.json** - Site configuration in JSON format
 
-**Note:** The current implementation has header/footer embedded 
-directly in each HTML page for optimal GitHub Pages compatibility. 
-The includes/ files serve as reference and can be used with dynamic 
+**Note:** The current implementation has header/footer embedded
+directly in each HTML page for optimal GitHub Pages compatibility.
+The includes/ files serve as reference and can be used with dynamic
 loading if serving from a web server.
 
 For more information, see `includes/README.md`.
