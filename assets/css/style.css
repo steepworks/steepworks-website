@@ -15,6 +15,27 @@ body {
 /* Header & Navigation */
 .navbar {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+}
+
+.navbar.scroll-down {
+    transform: translateY(-100%);
+}
+
+.navbar.scroll-up {
+    transform: translateY(0);
+}
+
+.navbar.bg-dark {
+    background: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #212529 45%, #212529 100%) !important;
+}
+
+.navbar .nav-link {
+    font-size: 1.2rem;
 }
 
 .navbar-brand {
