@@ -30,6 +30,14 @@ body {
     transform: translateY(0);
 }
 
+/* Offset page content for fixed navbar */
+body {
+    padding-top: 90px;
+    background:
+        linear-gradient(to right, #ffffff 0%, #ffffff 30%, #212529 45%, #212529 100%) 0 0 / 100% 90px no-repeat,
+        #ffffff;
+}
+
 .navbar.bg-dark {
     background: linear-gradient(to right, #ffffff 0%, #ffffff 30%, #212529 45%, #212529 100%) !important;
 }
