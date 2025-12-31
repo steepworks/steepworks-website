@@ -5,6 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Us - Steep Works</title>
     <link
+      rel="icon"
+      type="image/x-icon"
+      href="static/img/Favicon/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      box-shadow:
+      0
+      28px
+      90px
+      rgba(0,
+      0,
+      0,
+      0.55);
+      href="static/img/Favicon/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/img/Favicon/favicon-32x32.png"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
@@ -15,7 +39,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <header class="sticky-top">
+    <header class="sticky-top" style="position: relative; z-index: 5">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="index.html">
@@ -39,13 +63,13 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Services</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="projects.html">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
@@ -57,163 +81,233 @@
     </header>
 
     <main class="about-page">
-      <section class="page-header bg-primary text-white py-5">
+      <section
+        class="page-header brand-green-bg text-white py-1"
+        style="position: relative; z-index: 4; padding: 0.2rem 0"
+      >
         <div class="container">
           <h1 class="display-4">About Steep Works</h1>
           <p class="lead">Civil Engineering & Spider Digger Specialists</p>
         </div>
       </section>
 
-      <section class="py-5">
-        <div class="container">
-          <div class="row align-items-center mb-5">
-            <div class="col-lg-6 mb-4 mb-lg-0">
-              <h2 class="section-title">Who We Are</h2>
-              <p>
-                Steep Works is a specialist civil engineering company based in
-                Christchurch, Canterbury. We utilize advanced spider digger
-                technology to perform excavation, drilling, trenching,
-                landscaping, and demolition services in challenging terrain
-                where traditional machinery cannot operate.
-              </p>
-              <p>
-                Our unique multi-legged excavator design and advanced stability
-                controls allow us to navigate steep slopes, wetlands, and
-                delicate ecosystems effortlessly while minimizing environmental
-                impact through reduced soil compaction.
-              </p>
-              <p>
-                With a team of 2-10 dedicated professionals, we're committed to
-                delivering exceptional results for both residential and
-                commercial projects throughout the Canterbury region.
-              </p>
-            </div>
-            <div class="col-lg-6">
+      <section
+        class="py-1"
+        style="position: relative; min-height: 100vh; overflow: visible"
+      >
+        <div
+          aria-hidden="true"
+          style="
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            right: -10%;
+            bottom: -10%;
+            background-image: url('static/img/HQ/pexels2.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transform: rotate(3deg);
+            z-index: 0;
+          "
+        ></div>
+        <div
+          aria-hidden="true"
+          style="
+            position: fixed;
+            top: -10%;
+            left: -10%;
+            right: -10%;
+            bottom: -10%;
+            background: rgba(240, 240, 240, 0.75);
+            z-index: 1;
+            pointer-events: none;
+          "
+        ></div>
+
+        <div
+          class="container-fluid px-0 mb-1"
+          style="position: relative; z-index: 2"
+        >
+          <img
+            src="static/img/HQ/little_quarry_us.JPG"
+            alt="Little Quarry Team"
+            class="img-fluid rounded shadow"
+            style="
+              width: 100vw;
+              max-width: none;
+              height: 50vh;
+              object-fit: cover;
+              object-position: center;
+              clip-path: inset(12.5% 0 12.5% 0);
+              display: block;
+              box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55),
+                inset 0 0 80px rgba(0, 0, 0, 0.65);
+              border: 2px solid #666;
+            "
+          />
+        </div>
+
+        <div class="container" style="position: relative; z-index: 2">
+          <div class="row align-items-center g-4">
+            <div class="col-12 col-lg-4 text-center">
               <img
-                src="static/img/Harvey_farm_steep.jpg"
-                alt="About Steep Works"
-                class="img-fluid rounded shadow"
+                src="static/img/HQ/kaikoura_rope_access.jpg"
+                alt="Kaikoura Rope Access"
+                class="img-fluid rounded shadow d-block mx-auto about-hover-zoom"
+                style="
+                  width: 100%;
+                  max-width: 100%;
+                  height: 420px;
+                  object-fit: cover;
+                  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5),
+                    inset 0 0 60px rgba(0, 0, 0, 0.6);
+                  border: 2px solid #666;
+                "
               />
             </div>
-          </div>
-
-          <div class="row mb-5">
-            <div class="col-md-4 mb-4">
-              <div class="card h-100 border-0 shadow-sm text-center p-4">
-                <div
-                  class="icon-box bg-primary bg-opacity-10 text-primary mb-3 mx-auto"
-                >
-                  <i class="fas fa-cogs fa-3x"></i>
-                </div>
-                <h3 class="h5">Advanced Technology</h3>
-                <p>
-                  State-of-the-art spider digger equipment for superior
-                  performance in challenging conditions.
+            <div class="col-md-12 col-lg-4">
+              <div
+                class="contact-box"
+                style="
+                  padding: 3rem 2rem;
+                  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5);
+                "
+              >
+                <h2 class="section-title text-center mb-4">Who We Are</h2>
+                <p class="lead text-center mb-4">
+                  Steep Works is a specialist civil engineering company based in
+                  Christchurch, Canterbury. We utilize advanced spider digger
+                  technology to perform excavation, drilling, trenching,
+                  landscaping, and demolition services in challenging terrain
+                  where traditional machinery cannot operate.
+                </p>
+                <p class="text-center mb-4">
+                  Our unique multi-legged excavator design and advanced
+                  stability controls allow us to navigate steep slopes,
+                  wetlands, and delicate ecosystems effortlessly while
+                  minimizing environmental impact through reduced soil
+                  compaction.
+                </p>
+                <p class="text-center mb-0">
+                  With a team of 2-10 dedicated professionals, we're committed
+                  to delivering exceptional results for both residential and
+                  commercial projects throughout the Canterbury region.
                 </p>
               </div>
             </div>
-            <div class="col-md-4 mb-4">
-              <div class="card h-100 border-0 shadow-sm text-center p-4">
-                <div
-                  class="icon-box bg-primary bg-opacity-10 text-primary mb-3 mx-auto"
-                >
-                  <i class="fas fa-leaf fa-3x"></i>
-                </div>
-                <h3 class="h5">Environmental Care</h3>
-                <p>
-                  Minimal environmental impact with lightweight design that
-                  preserves natural ecosystems.
-                </p>
-              </div>
-            </div>
-            <div class="col-md-4 mb-4">
-              <div class="card h-100 border-0 shadow-sm text-center p-4">
-                <div
-                  class="icon-box bg-primary bg-opacity-10 text-primary mb-3 mx-auto"
-                >
-                  <i class="fas fa-users fa-3x"></i>
-                </div>
-                <h3 class="h5">Expert Team</h3>
-                <p>
-                  Experienced professionals including geotechnical rope access
-                  technicians.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="row bg-light p-5 rounded">
-            <div class="col-lg-12">
-              <h2 class="section-title mb-4">Our Leadership</h2>
-              <div class="row">
-                <div class="col-md-6 mb-4">
-                  <div class="d-flex align-items-start">
-                    <div class="me-3">
-                      <div
-                        class="avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
-                        style="width: 60px; height: 60px"
-                      >
-                        <span class="h4 mb-0"> MB </span>
-                      </div>
-                    </div>
-                    <div>
-                      <h4>Mattia Belingheri</h4>
-                      <p class="text-muted mb-2">Co-owner</p>
-                      <p>
-                        Leading Steep Works with expertise in civil engineering
-                        and specialist excavation services.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6 mb-4">
-                  <div class="d-flex align-items-start">
-                    <div class="me-3">
-                      <div
-                        class="avatar bg-primary text-white rounded-circle d-flex align-items-center justify-content-center"
-                        style="width: 60px; height: 60px"
-                      >
-                        <span class="h4 mb-0"> VP </span>
-                      </div>
-                    </div>
-                    <div>
-                      <h4>Valentina Piantoni</h4>
-                      <p class="text-muted mb-2">
-                        Director & Geotechnical Rope Access Technician
-                      </p>
-                      <p>
-                        Specialized in geotechnical operations and rope access
-                        techniques for challenging projects.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            <div class="col-12 col-lg-4 text-center">
+              <img
+                src="static/img/HQ/Bauma.jpg"
+                alt="Bauma Exhibition"
+                class="img-fluid rounded shadow d-block mx-auto about-hover-zoom"
+                style="
+                  width: 100%;
+                  max-width: 100%;
+                  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5),
+                    inset 0 0 60px rgba(0, 0, 0, 0.6);
+                  border: 2px solid #666;
+                "
+              />
             </div>
           </div>
         </div>
       </section>
-
-      <section class="cta-section py-5 bg-primary text-white">
+      <section style="position: relative; z-index: 2; padding: 3rem 0 4rem">
         <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-8 mb-4 mb-lg-0">
-              <h2 class="h1 mb-3">Ready to Work With Us?</h2>
-              <p class="lead mb-0">
-                Contact us today to discuss your project requirements.
-              </p>
+          <div
+            class="contact-box"
+            style="
+              padding: 3rem 2rem;
+              box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5);
+            "
+          >
+            <div class="row g-4 align-items-center mb-4">
+              <div class="col-md-4">
+                <div
+                  style="
+                    width: 80%;
+                    padding-top: 80%;
+                    background: repeating-linear-gradient(
+                      45deg,
+                      rgba(0, 0, 0, 0.05),
+                      rgba(0, 0, 0, 0.05) 10px,
+                      rgba(0, 0, 0, 0.08) 10px,
+                      rgba(0, 0, 0, 0.08) 20px
+                    );
+                    border: 2px dashed #666;
+                    border-radius: 8px;
+                    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
+                    margin: 0 auto;
+                  "
+                  aria-label="Placeholder for square image"
+                ></div>
+              </div>
+              <div class="col-md-8">
+                <h3 class="h4 mb-3">Mattia Belingheri</h3>
+                <p class="mb-0">The driver, that's about it.</p>
+              </div>
             </div>
-            <div class="col-lg-4 text-lg-end">
-              <a href="contact.html" class="btn btn-light btn-lg px-4">
-                Get in Touch
-              </a>
+
+            <div class="row g-4 align-items-center mb-4 flex-md-row-reverse">
+              <div class="col-md-4 text-center">
+                <img
+                  src="static/img/HQ/Val_face.JPG"
+                  alt="Valentina Piantoni"
+                  style="
+                    width: 80%;
+                    aspect-ratio: 1 / 1;
+                    object-fit: cover;
+                    border: 2px solid #666;
+                    border-radius: 8px;
+                    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
+                  "
+                />
+              </div>
+              <div class="col-md-8 text-end">
+                <h3 class="h4 mb-3">Valentina Piantoni</h3>
+                <p class="mb-0">the Boss, we all know it.</p>
+              </div>
+            </div>
+
+            <div class="row g-4 align-items-center">
+              <div class="col-md-4">
+                <div
+                  style="
+                    width: 80%;
+                    padding-top: 80%;
+                    background: repeating-linear-gradient(
+                      45deg,
+                      rgba(0, 0, 0, 0.05),
+                      rgba(0, 0, 0, 0.05) 10px,
+                      rgba(0, 0, 0, 0.08) 10px,
+                      rgba(0, 0, 0, 0.08) 20px
+                    );
+                    border: 2px dashed #666;
+                    border-radius: 8px;
+                    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
+                    margin: 0 auto;
+                  "
+                  aria-label="Placeholder for square image"
+                ></div>
+              </div>
+              <div class="col-md-8">
+                <h3 class="h4 mb-3">DJ Matheson</h3>
+                <p class="mb-0">
+                  Add your text here. This area is paired with the left square
+                  image placeholder above. Replace with your content.
+                </p>
+              </div>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="bg-dark text-white py-5 mt-5">
+    <footer
+      class="bg-dark text-white py-5 mt-5"
+      style="position: relative; z-index: 4"
+    >
       <div class="container">
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0">
@@ -252,6 +346,13 @@
                   href="projects.html"
                   class="text-white-50 text-decoration-none"
                   >Gallery</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="services.html"
+                  class="text-white-50 text-decoration-none"
+                  >Services</a
                 >
               </li>
               <li class="mb-2">

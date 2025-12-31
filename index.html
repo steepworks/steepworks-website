@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home - Steep Works Construction</title>
     <link
+      rel="icon"
+      type="image/x-icon"
+      href="static/img/Favicon/favicon.ico"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="static/img/Favicon/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="static/img/Favicon/favicon-32x32.png"
+    />
+    <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
       rel="stylesheet"
     />
@@ -43,13 +60,13 @@
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
               <li class="nav-item">
-                <a class="nav-link" href="index.html">Home</a>
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Services</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="projects.html">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="contact.html">Contact</a>
@@ -62,12 +79,16 @@
 
     <main>
       <section class="hero position-relative">
-        <div class="hero-overlay"></div>
-        <div class="container h-100">
-          <div class="row h-100 align-items-center">
-            <div
-              class="col-12 col-lg-4 text-center text-white d-flex flex-column justify-content-center"
-            >
+        <div class="hero-container">
+          <a href="static/img/HQ/Gorse_climb_L.jpg" data-lightbox="gallery">
+            <img
+              src="static/img/HQ/Gorse_climb_L.jpg"
+              alt="Our Work"
+              class="hero-image"
+            />
+          </a>
+          <div class="hero-text-overlay">
+            <div class="hero-content">
               <p class="lead mb-4">Specialist Excavation Services</p>
               <p class="h5 mb-5">
                 Expert spider digger operations for challenging terrain in
@@ -79,20 +100,6 @@
                 </a>
                 <a href="contact.html" class="btn btn-outline-light btn-lg">
                   Get in Touch
-                </a>
-              </div>
-            </div>
-            <div class="col-lg-8 d-none d-lg-block">
-              <div class="hero-main-image">
-                <a
-                  href="static/img/Harvey_farm_steep.jpg"
-                  data-lightbox="gallery"
-                >
-                  <img
-                    src="static/img/Harvey_farm_steep.jpg"
-                    alt="Our Work"
-                    class="img-fluid w-100 h-auto"
-                  />
                 </a>
               </div>
             </div>
@@ -117,7 +124,7 @@
               <div class="row mt-4">
                 <div class="col-md-6 mb-3">
                   <div class="d-flex">
-                    <div class="me-3 text-primary">
+                    <div class="me-3 brand-green-text">
                       <i class="fas fa-check-circle fa-2x"></i>
                     </div>
                     <div>
@@ -130,7 +137,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="d-flex">
-                    <div class="me-3 text-primary">
+                    <div class="me-3 brand-green-text">
                       <i class="fas fa-check-circle fa-2x"></i>
                     </div>
                     <div>
@@ -151,7 +158,7 @@
                   class="img-fluid rounded shadow"
                 />
                 <div
-                  class="experience-badge bg-primary text-white p-4 rounded shadow text-center"
+                  class="experience-badge brand-green-bg p-4 rounded shadow text-center"
                 >
                   <h3 class="mb-0">10+</h3>
                   <p class="mb-0">Years Experience</p>
@@ -163,24 +170,28 @@
       </section>
 
       <section class="services-section py-5 bg-light">
-        <div class="container">
-          <div class="row align-items-center">
-            <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
-              <h2 class="section-title">Our Services</h2>
-              <p class="lead mb-4">Comprehensive construction solutions</p>
-              <p>
-                We offer a wide range of specialized services to meet all your
-                construction and excavation needs. Our team of experts is
-                equipped with the latest technology and equipment to handle
-                projects of any size and complexity.
-              </p>
-            </div>
-            <div class="col-lg-6 order-lg-1">
-              <img
-                src="static/img/Harvey_farm_steep.jpg"
-                alt="Our Services"
-                class="img-fluid rounded shadow"
-              />
+        <div class="services-sticky-wrapper">
+          <div class="container">
+            <div class="row align-items-center">
+              <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+                <h2 class="section-title">Our Services</h2>
+                <p class="lead mb-4">Comprehensive construction solutions</p>
+                <p>
+                  We offer a wide range of specialized services to meet all your
+                  construction and excavation needs. Our team of experts is
+                  equipped with the latest technology and equipment to handle
+                  projects of any size and complexity.
+                </p>
+              </div>
+              <div class="col-lg-6 order-lg-1">
+                <div class="frame-animation-container" id="frameAnimation">
+                  <img
+                    id="animatedFrame"
+                    src="static/img/frames/PXL_20251126_210848409~2_0003.jpg"
+                    alt="Services Animation"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -244,7 +255,7 @@
 
       <!-- Testimonials section removed per request -->
 
-      <section class="cta-section py-5 bg-primary text-white">
+      <section class="cta-section py-5 bg-danger text-white">
         <div class="container">
           <div class="row align-items-center">
             <div class="col-lg-8 mb-4 mb-lg-0">
@@ -302,6 +313,13 @@
                   href="projects.html"
                   class="text-white-50 text-decoration-none"
                   >Projects</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="services.html"
+                  class="text-white-50 text-decoration-none"
+                  >Services</a
                 >
               </li>
               <li class="mb-2">
@@ -386,5 +404,104 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
     <script src="assets/js/main.js"></script>
+    <script>
+      // Frame animation on scroll with parallax effect
+      (function () {
+        const frames = [
+          "static/img/frames/PXL_20251126_210848409~2_0003.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0004.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0005.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0006.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0007.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0008.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0009.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0010.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0011.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0012.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0013.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0014.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0015.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0016.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0017.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0018.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0019.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0020.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0021.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0022.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0023.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0024.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0025.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0026.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0027.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0028.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0029.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0030.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0031.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0032.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0033.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0034.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0035.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0036.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0037.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0038.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0039.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0040.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0041.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0042.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0043.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0044.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0045.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0046.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0047.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0048.jpg",
+          "static/img/frames/PXL_20251126_210848409~2_0049.jpg",
+        ];
+
+        const frameImg = document.getElementById("animatedFrame");
+        const servicesSection = document.querySelector(".services-section");
+        if (!frameImg || !servicesSection) return;
+
+        let currentFrame = 0;
+        let ticking = false;
+
+        function updateFrame() {
+          const rect = servicesSection.getBoundingClientRect();
+          const sectionHeight = servicesSection.offsetHeight;
+          const windowHeight = window.innerHeight;
+
+          // Calculate how far we've scrolled through the section (0 to 1)
+          const scrollProgress = Math.max(
+            0,
+            Math.min(1, -rect.top / (sectionHeight - windowHeight))
+          );
+
+          // Map scroll progress to frame index
+          const frameIndex = Math.floor(scrollProgress * (frames.length - 1));
+
+          // Update image if frame changed
+          if (
+            frameIndex !== currentFrame &&
+            frameIndex >= 0 &&
+            frameIndex < frames.length
+          ) {
+            currentFrame = frameIndex;
+            frameImg.src = frames[frameIndex];
+          }
+
+          ticking = false;
+        }
+
+        function onScroll() {
+          if (!ticking) {
+            window.requestAnimationFrame(updateFrame);
+            ticking = true;
+          }
+        }
+
+        window.addEventListener("scroll", onScroll);
+        window.addEventListener("resize", updateFrame);
+        updateFrame();
+      })();
+    </script>
   </body>
 </html>

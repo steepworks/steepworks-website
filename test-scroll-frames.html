@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scroll Frames Test</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      body {
+        background-color: #1a1a1a;
+        overflow-x: hidden;
+      }
+
+      .scroll-frames-container {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 60px);
+        background-color: #000;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 20px;
+        z-index: -1;
+      }
+
+      .scroll-frames-image {
+        max-width: 66%;
+        max-height: 66%;
+        object-fit: contain;
+      }
+
+      .scroll-content {
+        position: relative;
+        z-index: 1;
+        min-height: 500vh;
+        background: transparent;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Header from includes/header.html -->
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img
+              src="static/img/Logo_small_clear.png"
+              alt="Steep Works"
+              height="60"
+            />
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarNav"
+            aria-controls="navbarNav"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="services.html">Services</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="projects.html">Projects</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Scroll frames container -->
+    <div class="scroll-frames-container">
+      <img id="frameImage" class="scroll-frames-image" src="" alt="Frame" />
+    </div>
+
+    <!-- Content to enable scrolling -->
+    <div class="scroll-content"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      // Array of frame images (all images)
+      const frames = [
+        "static/img/frames/PXL_20251126_210848409~2_0003.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0004.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0005.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0006.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0007.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0008.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0009.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0010.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0011.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0012.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0013.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0014.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0015.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0016.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0017.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0018.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0019.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0020.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0021.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0022.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0023.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0024.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0025.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0026.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0027.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0028.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0029.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0030.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0031.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0032.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0033.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0034.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0035.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0036.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0037.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0038.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0039.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0040.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0041.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0042.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0043.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0044.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0045.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0046.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0047.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0048.jpg",
+        "static/img/frames/PXL_20251126_210848409~2_0049.jpg",
+      ];
+
+      const frameImage = document.getElementById("frameImage");
+      let currentFrameIndex = 0;
+
+      // Set initial image
+      frameImage.src = frames[0];
+
+      // Handle scroll events
+      window.addEventListener("scroll", () => {
+        // Calculate scroll progress (0 to 1)
+        const scrollHeight =
+          document.documentElement.scrollHeight - window.innerHeight;
+        const scrollProgress = window.scrollY / scrollHeight;
+
+        // Calculate which frame to show based on scroll progress
+        const frameIndex = Math.min(
+          Math.floor(scrollProgress * frames.length),
+          frames.length - 1
+        );
+
+        // Update image if frame changed
+        if (frameIndex !== currentFrameIndex) {
+          currentFrameIndex = frameIndex;
+          frameImage.src = frames[frameIndex];
+        }
+      });
+    </script>
+  </body>
+</html>
