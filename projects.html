@@ -29,11 +29,260 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css"
-    />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .projects-grid {
+        margin-top: 2rem;
+      }
+
+      .project-card-custom {
+        position: relative;
+        overflow: hidden;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.25s ease;
+      }
+
+      .project-card-custom img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 5 / 3;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.4s ease;
+        will-change: transform;
+        transform-origin: center;
+        backface-visibility: hidden;
+        transform: translateZ(0);
+      }
+
+      .project-card-custom:hover img {
+        transform: scale(1.05);
+      }
+
+      .project-card-custom:hover {
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.26);
+      }
+
+      .project-overlay-top,
+      .project-overlay-bottom {
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 15%;
+        display: flex;
+        align-items: center;
+        padding: 0.75rem 1rem;
+        color: #fff;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .project-overlay-top {
+        top: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        justify-content: flex-start;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .project-overlay-bottom {
+        bottom: 0;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        justify-content: flex-start;
+        gap: 0.5rem;
+        border-radius: 0 0 10px 10px;
+      }
+
+      .project-title {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+      }
+
+      .project-overlay-bottom .badge {
+        pointer-events: auto;
+      }
+
+      .thumbnail-gallery {
+        display: flex;
+        gap: 0.5rem;
+        padding: 1rem;
+        background-color: #f8f9fa;
+        overflow-x: auto;
+      }
+
+      .thumbnail {
+        min-width: 80px;
+        width: 80px;
+        height: 48px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .thumbnail:hover {
+        border-color: #6c757d;
+      }
+
+      .thumbnail.active {
+        border-color: #008e44;
+        box-shadow: 0 0 0 2px rgba(0, 142, 68, 0.2);
+      }
+
+      .modal-dialog {
+        max-width: 68vw;
+      }
+
+      .modal-body {
+        padding: 0;
+      }
+
+      .modal-content-wrapper {
+        display: flex;
+        aspect-ratio: 2 / 1;
+        overflow: hidden;
+      }
+
+      .modal-image-section {
+        flex: 3;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .modal-image-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .modal-image-section img.fade-out {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      .modal-image-section img.fade-in {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        border: none;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s;
+        z-index: 5;
+      }
+
+      .nav-arrow:hover {
+        background: rgba(0, 0, 0, 0.65);
+      }
+
+      .nav-arrow-left {
+        left: 12px;
+      }
+
+      .nav-arrow-right {
+        right: 12px;
+      }
+
+      .nav-arrow img {
+        width: 90%;
+        height: 90%;
+        object-fit: contain;
+      }
+
+      .modal-header {
+        background: linear-gradient(135deg, #008e44 0%, #006633 100%);
+        color: white;
+        border-bottom: none;
+        padding: 1.5rem 2rem;
+      }
+
+      .modal-title {
+        font-weight: 700;
+        font-size: 1.75rem;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal-header .btn-close {
+        filter: brightness(0) invert(1);
+        opacity: 0.8;
+      }
+
+      .modal-header .btn-close:hover {
+        opacity: 1;
+      }
+
+      .modal-details-section {
+        flex: 2;
+        padding: 2rem;
+        overflow-y: auto;
+      }
+
+      @media (max-width: 767.98px) {
+        .modal-dialog {
+          max-width: 95vw;
+          margin: 1rem auto;
+        }
+
+        .modal-content-wrapper {
+          flex-direction: column;
+          aspect-ratio: auto;
+          height: auto;
+        }
+
+        .modal-image-section {
+          height: 50vh;
+        }
+
+        .modal-details-section {
+          padding: 1rem;
+        }
+
+        .nav-arrow {
+          width: 44px;
+          height: 44px;
+        }
+
+        .nav-arrow-left {
+          left: 8px;
+        }
+
+        .nav-arrow-right {
+          right: 8px;
+        }
+
+        .thumbnail {
+          min-width: 64px;
+          width: 64px;
+          height: 40px;
+        }
+      }
+    </style>
   </head>
   <body>
     <header class="sticky-top">
@@ -78,10 +327,18 @@
     </header>
 
     <main class="projects-page">
+      <section class="page-header brand-green-bg text-white py-5">
+        <div class="container">
+          <h1 class="display-4">Projects</h1>
+          <div class="decorative-line"></div>
+          <p class="lead mb-0">
+            Real-world work across steep, complex terrain.
+          </p>
+        </div>
+      </section>
+
       <section class="py-5">
         <div class="container">
-          <h1 class="text-center mb-5">Projects</h1>
-
           <div class="text-center mb-4">
             <button class="btn btn-outline-primary active" data-filter="all">
               All
@@ -95,189 +352,234 @@
             <button class="btn btn-outline-primary" data-filter="extreme">
               Extreme
             </button>
+            <button class="btn btn-outline-primary" data-filter="landscaping">
+              Landscaping
+            </button>
+            <button class="btn btn-outline-primary" data-filter="services">
+              Services
+            </button>
+            <button class="btn btn-outline-primary" data-filter="technology">
+              Technology
+            </button>
           </div>
 
-          <div class="row g-4 projects-grid gallery-grid">
+          <div class="row g-4 projects-grid justify-content-center">
             <div
-              class="col-md-4 col-sm-6 project-item gallery-item"
-              data-category="drilling"
+              class="col-lg-6 col-md-6 col-sm-12 project-item"
+              data-category="drilling, extreme"
             >
-              <div class="card h-100">
-                <a
-                  href="static/img/spider_Behind_tank.jpg"
-                  data-lightbox="projects"
-                  data-title="Spider Digger Operation"
-                >
-                  <img
-                    src="static/img/spider_Behind_tank.jpg"
-                    class="card-img-top"
-                    alt="Spider Digger Operation"
-                  />
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">Spider Digger Operation</h5>
-                  <span class="badge brand-green-bg"> Drilling </span>
+              <div class="project-card-custom" data-project="spider">
+                <img
+                  src="static/img/HQ/cassbay_drilling.jpg"
+                  alt="Spider Digger Operation"
+                />
+                <div class="project-overlay-top">
+                  <h4 class="project-title">Spider Digger Operation</h4>
+                </div>
+                <div class="project-overlay-bottom">
+                  <span class="badge brand-green-bg">Drilling</span>
+                  <span class="badge brand-green-bg">Extreme</span>
                 </div>
               </div>
             </div>
             <div
-              class="col-md-4 col-sm-6 project-item gallery-item"
+              class="col-lg-6 col-md-6 col-sm-12 project-item"
               data-category="excavation"
             >
-              <div class="card h-100">
-                <a
-                  href="static/img/digging_tank_hole.jpg"
-                  data-lightbox="projects"
-                  data-title="Steep Slope Excavation"
-                >
-                  <img
-                    src="static/img/digging_tank_hole.jpg"
-                    class="card-img-top"
-                    alt="Steep Slope Excavation"
-                  />
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">Steep Slope Excavation</h5>
-                  <span class="badge brand-green-bg"> Excavation </span>
+              <div class="project-card-custom" data-project="slope">
+                <img
+                  src="static/img/HQ/big_tree_L2.JPG"
+                  alt="Steep Slope Excavation"
+                />
+                <div class="project-overlay-top">
+                  <h4 class="project-title">Steep Slope Excavation</h4>
+                </div>
+                <div class="project-overlay-bottom">
+                  <span class="badge brand-green-bg">Excavation</span>
                 </div>
               </div>
             </div>
             <div
-              class="col-md-4 col-sm-6 project-item gallery-item"
+              class="col-lg-6 col-md-6 col-sm-12 project-item"
               data-category="drilling"
             >
-              <div class="card h-100">
-                <a
-                  href="static/img/OutOfTheHole.jpg"
-                  data-lightbox="projects"
-                  data-title="Drilling Project"
-                >
-                  <img
-                    src="static/img/OutOfTheHole.jpg"
-                    class="card-img-top"
-                    alt="Drilling Project"
-                  />
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">Drilling Project</h5>
-                  <span class="badge brand-green-bg"> Drilling </span>
+              <div class="project-card-custom" data-project="drilling">
+                <img
+                  src="static/img/HQ/cassbay_driller.jpg"
+                  alt="Drilling Project"
+                />
+                <div class="project-overlay-top">
+                  <h4 class="project-title">Drilling Project</h4>
+                </div>
+                <div class="project-overlay-bottom">
+                  <span class="badge brand-green-bg">Drilling</span>
                 </div>
               </div>
             </div>
             <div
-              class="col-md-4 col-sm-6 project-item gallery-item"
-              data-category="excavation"
+              class="col-lg-6 col-md-6 col-sm-12 project-item"
+              data-category="excavation, extreme"
             >
-              <div class="card h-100">
-                <a
-                  href="static/img/463891918_17882377167149660_8786082846025836976_n.jpg"
-                  data-lightbox="projects"
-                  data-title="Trenching Work"
-                >
-                  <img
-                    src="static/img/463891918_17882377167149660_8786082846025836976_n.jpg"
-                    class="card-img-top"
-                    alt="Trenching Work"
-                  />
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">Trenching Work</h5>
-                  <span class="badge brand-green-bg"> Excavation </span>
+              <div class="project-card-custom" data-project="trenching">
+                <img
+                  src="static/img/HQ/littlequarry_climb.jpg"
+                  alt="Trenching Work"
+                />
+                <div class="project-overlay-top">
+                  <h4 class="project-title">Trenching Work</h4>
+                </div>
+                <div class="project-overlay-bottom">
+                  <span class="badge brand-green-bg">Excavation</span>
+                  <span class="badge brand-green-bg">Extreme</span>
                 </div>
               </div>
             </div>
             <div
-              class="col-md-4 col-sm-6 project-item gallery-item"
-              data-category="drilling"
+              class="col-lg-6 col-md-6 col-sm-12 project-item"
+              data-category="extreme, landscaping"
             >
-              <div class="card h-100">
-                <a
-                  href="static/img/FallenTree_side.jpg"
-                  data-lightbox="projects"
-                  data-title="Landscaping Project"
-                >
-                  <img
-                    src="static/img/FallenTree_side.jpg"
-                    class="card-img-top"
-                    alt="Landscaping Project"
-                  />
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">Landscaping Project</h5>
-                  <span class="badge brand-green-bg"> Drilling </span>
+              <div class="project-card-custom" data-project="landscaping1">
+                <img
+                  src="static/img/HQ/front_artistic.jpg"
+                  alt="Landscaping Project"
+                />
+                <div class="project-overlay-top">
+                  <h4 class="project-title">Landscaping Project</h4>
+                </div>
+                <div class="project-overlay-bottom">
+                  <span class="badge brand-green-bg">Extreme</span>
+                  <span class="badge brand-green-bg">Landscaping</span>
                 </div>
               </div>
             </div>
             <div
-              class="col-md-4 col-sm-6 project-item gallery-item"
-              data-category="drilling"
+              class="col-lg-6 col-md-6 col-sm-12 project-item"
+              data-category="extreme, landscaping"
             >
-              <div class="card h-100">
-                <a
-                  href="static/img/501345614_122229852704200845_740794194281618114_n.jpg"
-                  data-lightbox="projects"
-                  data-title="Landscaping Work"
-                >
-                  <img
-                    src="static/img/501345614_122229852704200845_740794194281618114_n.jpg"
-                    class="card-img-top"
-                    alt="Landscaping Work"
-                  />
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">Landscaping Work</h5>
-                  <span class="badge brand-green-bg"> Drilling </span>
+              <div class="project-card-custom" data-project="landscaping2">
+                <img
+                  src="static/img/HQ/little_quarry_us.JPG"
+                  alt="Landscaping Work"
+                />
+                <div class="project-overlay-top">
+                  <h4 class="project-title">Landscaping Work</h4>
+                </div>
+                <div class="project-overlay-bottom">
+                  <span class="badge brand-green-bg">Extreme</span>
+                  <span class="badge brand-green-bg">Landscaping</span>
                 </div>
               </div>
             </div>
             <div
-              class="col-md-4 col-sm-6 project-item gallery-item"
-              data-category="excavation"
+              class="col-lg-6 col-md-6 col-sm-12 project-item"
+              data-category="drilling, services"
             >
-              <div class="card h-100">
-                <a
-                  href="static/img/CassBay_Drilling1.jpg"
-                  data-lightbox="projects"
-                  data-title="Drilling Services"
-                >
-                  <img
-                    src="static/img/CassBay_Drilling1.jpg"
-                    class="card-img-top"
-                    alt="Drilling Services"
-                  />
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">Drilling Services</h5>
-                  <span class="badge brand-green-bg"> Excavation </span>
+              <div class="project-card-custom" data-project="services">
+                <img
+                  src="static/img/HQ/kaikoura_rope_access.jpg"
+                  alt="Drilling Services"
+                />
+                <div class="project-overlay-top">
+                  <h4 class="project-title">Drilling Services</h4>
+                </div>
+                <div class="project-overlay-bottom">
+                  <span class="badge brand-green-bg">Drilling</span>
+                  <span class="badge brand-green-bg">Services</span>
                 </div>
               </div>
             </div>
             <div
-              class="col-md-4 col-sm-6 project-item gallery-item"
-              data-category="drilling"
+              class="col-lg-6 col-md-6 col-sm-12 project-item"
+              data-category="drilling, technology"
             >
-              <div class="card h-100">
-                <a
-                  href="static/img/573215600_17926903134149660_4447652716845702929_n.jpg"
-                  data-lightbox="projects"
-                  data-title="Spider Digger Technology"
-                >
-                  <img
-                    src="static/img/573215600_17926903134149660_4447652716845702929_n.jpg"
-                    class="card-img-top"
-                    alt="Spider Digger Technology"
-                  />
-                </a>
-                <div class="card-body">
-                  <h5 class="card-title">Spider Digger Technology</h5>
-                  <span class="badge brand-green-bg"> Drilling </span>
+              <div class="project-card-custom" data-project="technology">
+                <img
+                  src="static/img/HQ/show_us.jpg"
+                  alt="Spider Digger Technology"
+                />
+                <div class="project-overlay-top">
+                  <h4 class="project-title">Spider Digger Technology</h4>
+                </div>
+                <div class="project-overlay-bottom">
+                  <span class="badge brand-green-bg">Drilling</span>
+                  <span class="badge brand-green-bg">Technology</span>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <section class="cta-section py-5 bg-danger text-white">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-lg-8 mb-4 mb-lg-0">
+              <h2 class="h1 mb-3">Ready to Start Your Project?</h2>
+              <p class="lead mb-0">
+                Contact us today for a free consultation and quote.
+              </p>
+            </div>
+            <div class="col-lg-4 text-lg-end">
+              <a href="contact.html" class="btn btn-light btn-lg px-5 py-3">
+                Get in Touch
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
+
+    <!-- Modal Popup -->
+    <div
+      class="modal fade"
+      id="projectModal"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="projectModalLabel">Project</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="thumbnail-gallery" id="projectThumbnails"></div>
+          <div class="modal-body">
+            <div class="modal-content-wrapper">
+              <div class="modal-image-section">
+                <button
+                  class="nav-arrow nav-arrow-left"
+                  onclick="showPrevImage(event)"
+                >
+                  <img
+                    src="static/img/Icons/Bucket_icon_left.ico"
+                    alt="Previous"
+                  />
+                </button>
+                <img id="modalMainImage" src="" alt="Project image" />
+                <button
+                  class="nav-arrow nav-arrow-right"
+                  onclick="showNextImage(event)"
+                >
+                  <img
+                    src="static/img/Icons/Bucket_icon_right.ico"
+                    alt="Next"
+                  />
+                </button>
+              </div>
+              <div class="modal-details-section" id="projectDetails">
+                <!-- Populated via JS -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
     <footer class="bg-dark text-white py-5 mt-5">
       <div class="container">
@@ -309,33 +611,33 @@
             <h5 class="mb-3">Quick Links</h5>
             <ul class="list-unstyled">
               <li class="mb-2">
-                <a href="index.html" class="text-white-50 text-decoration-none"
+                <a href="index.html" class="text-white-75 text-decoration-none"
                   >Home</a
                 >
               </li>
               <li class="mb-2">
                 <a
                   href="projects.html"
-                  class="text-white-50 text-decoration-none"
+                  class="text-white-75 text-decoration-none"
                   >Projects</a
                 >
               </li>
               <li class="mb-2">
                 <a
                   href="services.html"
-                  class="text-white-50 text-decoration-none"
+                  class="text-white-75 text-decoration-none"
                   >Services</a
                 >
               </li>
               <li class="mb-2">
-                <a href="about.html" class="text-white-50 text-decoration-none"
+                <a href="about.html" class="text-white-75 text-decoration-none"
                   >About</a
                 >
               </li>
               <li class="mb-2">
                 <a
                   href="contact.html"
-                  class="text-white-50 text-decoration-none"
+                  class="text-white-75 text-decoration-none"
                   >Contact</a
                 >
               </li>
@@ -346,27 +648,27 @@
             <h5 class="mb-3">Services</h5>
             <ul class="list-unstyled">
               <li class="mb-2">
-                <a href="#" class="text-white-50 text-decoration-none"
+                <a href="#" class="text-white-75 text-decoration-none"
                   >Excavation</a
                 >
               </li>
               <li class="mb-2">
-                <a href="#" class="text-white-50 text-decoration-none"
+                <a href="#" class="text-white-75 text-decoration-none"
                   >Drilling</a
                 >
               </li>
               <li class="mb-2">
-                <a href="#" class="text-white-50 text-decoration-none"
+                <a href="#" class="text-white-75 text-decoration-none"
                   >Trenching</a
                 >
               </li>
               <li class="mb-2">
-                <a href="#" class="text-white-50 text-decoration-none"
+                <a href="#" class="text-white-75 text-decoration-none"
                   >Landscaping</a
                 >
               </li>
               <li class="mb-2">
-                <a href="#" class="text-white-50 text-decoration-none"
+                <a href="#" class="text-white-75 text-decoration-none"
                   >Demolition</a
                 >
               </li>
@@ -384,7 +686,7 @@
                 <i class="fas fa-envelope me-2"></i>
                 <a
                   href="mailto:projects@steepworks.co.nz"
-                  class="text-white-50 text-decoration-none"
+                  class="text-white-75 text-decoration-none"
                 >
                   projects@steepworks.co.nz
                 </a>
@@ -407,8 +709,273 @@
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/js/lightbox-plus-jquery.min.js"></script>
+    <script>
+      const projectsData = {
+        spider: {
+          title: "Spider Digger Operation",
+          category: "drilling, extreme",
+          year: "2025",
+          location: "Christchurch, Canterbury",
+          status: "Completed",
+          description:
+            "Specialized spider digger work on challenging terrain with tight access needs.",
+          images: [
+            "static/img/HQ/cassbay_drilling.jpg",
+            "static/img/HQ/drilling_detailed.jpg",
+            "static/img/HQ/show_spider.jpg",
+          ],
+        },
+        slope: {
+          title: "Steep Slope Excavation",
+          category: "excavation",
+          year: "2024",
+          location: "Banks Peninsula",
+          status: "Completed",
+          description:
+            "Cutting and benching on steep ground with stability controls in place.",
+          images: [
+            "static/img/HQ/big_tree_L2.JPG",
+            "static/img/HQ/excavation.jpg",
+            "static/img/HQ/uneven_road.jpg",
+          ],
+        },
+        drilling: {
+          title: "Drilling Project",
+          category: "drilling",
+          year: "2024",
+          location: "Canterbury",
+          status: "In Progress",
+          description:
+            "Production drilling with slope-safe positioning and spoil control.",
+          images: [
+            "static/img/HQ/cassbay_driller.jpg",
+            "static/img/HQ/cassbay_lateral.jpg",
+            "static/img/HQ/Harvey_farm_steep_HQ.jpg",
+          ],
+        },
+        trenching: {
+          title: "Trenching Work",
+          category: "excavation, extreme",
+          year: "2023",
+          location: "Canterbury",
+          status: "Completed",
+          description:
+            "Service trenching on uneven terrain with erosion protection measures.",
+          images: [
+            "static/img/HQ/littlequarry_climb.jpg",
+            "static/img/HQ/Gorse_climb_L.jpg",
+            "static/img/HQ/prequarry_L.jpg",
+          ],
+        },
+        landscaping1: {
+          title: "Landscaping Project",
+          category: "extreme, landscaping",
+          year: "2023",
+          location: "Christchurch",
+          status: "Completed",
+          description:
+            "Sculpting, planting prep, and access shaping for premium residential terrain.",
+          images: [
+            "static/img/HQ/front_artistic.jpg",
+            "static/img/HQ/fairysgrove.jpg",
+            "static/img/HQ/belmat_sfondo.jpg",
+          ],
+        },
+        landscaping2: {
+          title: "Landscaping Work",
+          category: "extreme, landscaping",
+          year: "2024",
+          location: "Canterbury",
+          status: "In Progress",
+          description:
+            "Grading, shaping, and planting berms with low-impact machinery.",
+          images: [
+            "static/img/HQ/little_quarry_us.JPG",
+            "static/img/HQ/pexels2.jpg",
+            "static/img/HQ/pexels3.jpg",
+          ],
+        },
+        services: {
+          title: "Drilling Services",
+          category: "drilling, services",
+          year: "2025",
+          location: "Kaikoura Region",
+          status: "Planned",
+          description:
+            "Rope-assisted drilling for remote slopes with minimal footprint.",
+          images: [
+            "static/img/HQ/kaikoura_rope_access.jpg",
+            "static/img/HQ/prequarry_climb.jpg",
+            "static/img/HQ/Bauma.jpg",
+          ],
+        },
+        technology: {
+          title: "Spider Digger Technology",
+          category: "drilling, technology",
+          year: "2025",
+          location: "Canterbury",
+          status: "Completed",
+          description:
+            "Showcase of spider digger versatility on technical hillside work.",
+          images: [
+            "static/img/HQ/show_us.jpg",
+            "static/img/HQ/Val_face.JPG",
+            "static/img/HQ/Droneview_L.JPG",
+          ],
+        },
+      };
+
+      let currentProjectKey = null;
+      let currentImageIndex = 0;
+      let fadeOutTimeout = null;
+      let fadeInTimeout = null;
+
+      function renderDetails(data) {
+        const details = document.getElementById("projectDetails");
+        if (!details || !data) return;
+        const catList = (data.category || "")
+          .split(",")
+          .map((t) => t.trim())
+          .filter(Boolean)
+          .map((t) => t.charAt(0).toUpperCase() + t.slice(1))
+          .join(", ");
+        details.innerHTML = `
+          <h6>Project Details</h6>
+          <ul>
+            <li><strong>Location:</strong> ${data.location}</li>
+            <li><strong>Category:</strong> ${catList}</li>
+            <li><strong>Status:</strong> ${data.status}</li>
+            <li><strong>Year:</strong> ${data.year}</li>
+          </ul>
+          <h6>Description</h6>
+          <p>${data.description}</p>
+        `;
+      }
+
+      function renderThumbnails(data) {
+        const container = document.getElementById("projectThumbnails");
+        if (!container || !data) return;
+        container.innerHTML = "";
+        data.images.forEach((src, idx) => {
+          const img = document.createElement("img");
+          img.src = src;
+          img.alt = `${data.title} ${idx + 1}`;
+          img.className = "thumbnail" + (idx === 0 ? " active" : "");
+          img.dataset.index = idx;
+          img.addEventListener("click", () => changeModalImage(idx));
+          container.appendChild(img);
+        });
+      }
+
+      function renderModalImage(index) {
+        const data = projectsData[currentProjectKey];
+        if (!data) return;
+        currentImageIndex = index;
+        const mainImg = document.getElementById("modalMainImage");
+        const image = data.images[index];
+        if (!mainImg || !image) return;
+
+        if (fadeOutTimeout) clearTimeout(fadeOutTimeout);
+        if (fadeInTimeout) clearTimeout(fadeInTimeout);
+        mainImg.classList.remove("fade-out", "fade-in");
+
+        mainImg.classList.add("fade-out");
+
+        fadeOutTimeout = setTimeout(() => {
+          mainImg.src = image;
+          mainImg.alt = `${data.title} ${index + 1}`;
+          mainImg.classList.remove("fade-out");
+          mainImg.classList.add("fade-in");
+
+          fadeInTimeout = setTimeout(() => {
+            mainImg.classList.remove("fade-in");
+          }, 300);
+        }, 150);
+
+        document.querySelectorAll(".thumbnail").forEach((thumb, i) => {
+          thumb.classList.toggle("active", i === index);
+        });
+      }
+
+      function changeModalImage(idx) {
+        const data = projectsData[currentProjectKey];
+        if (!data) return;
+        const nextIndex = typeof idx === "number" ? idx : 0;
+        renderModalImage(nextIndex);
+      }
+
+      function showPrevImage(evt) {
+        if (evt) evt.stopPropagation();
+        const data = projectsData[currentProjectKey];
+        if (!data) return;
+        const nextIndex =
+          (currentImageIndex - 1 + data.images.length) % data.images.length;
+        renderModalImage(nextIndex);
+      }
+
+      function showNextImage(evt) {
+        if (evt) evt.stopPropagation();
+        const data = projectsData[currentProjectKey];
+        if (!data) return;
+        const nextIndex = (currentImageIndex + 1) % data.images.length;
+        renderModalImage(nextIndex);
+      }
+
+      function openProject(projectKey) {
+        const data = projectsData[projectKey];
+        if (!data) return;
+        currentProjectKey = projectKey;
+        currentImageIndex = 0;
+        const titleEl = document.getElementById("projectModalLabel");
+        if (titleEl) titleEl.textContent = data.title;
+        renderThumbnails(data);
+        renderDetails(data);
+        renderModalImage(0);
+        const modalEl = document.getElementById("projectModal");
+        if (modalEl) {
+          const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+          modal.show();
+        }
+      }
+
+      function setBadgesFromCategory() {
+        document.querySelectorAll(".project-card-custom").forEach((card) => {
+          const item = card.closest(".project-item");
+          const cats = (item?.getAttribute("data-category") || "")
+            .split(",")
+            .map((c) => c.trim())
+            .filter(Boolean)
+            .map((c) => c.charAt(0).toUpperCase() + c.slice(1));
+          const badgeWrap = card.querySelector(".project-overlay-bottom");
+          if (badgeWrap && cats.length) {
+            badgeWrap.innerHTML = cats
+              .map((c) => `<span class="badge brand-green-bg">${c}</span>`)
+              .join("");
+          }
+        });
+      }
+
+      document.addEventListener("keydown", (e) => {
+        const modal = document.getElementById("projectModal");
+        if (!modal || !modal.classList.contains("show")) return;
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          showPrevImage();
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          showNextImage();
+        }
+      });
+
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".project-card-custom").forEach((card) => {
+          card.addEventListener("click", () => {
+            openProject(card.dataset.project);
+          });
+        });
+        setBadgesFromCategory();
+      });
+    </script>
     <script src="assets/js/main.js"></script>
     <script src="assets/js/projects.js"></script>
   </body>

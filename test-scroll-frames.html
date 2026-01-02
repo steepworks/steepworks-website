@@ -1,45 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Scroll Frames Test</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="assets/css/style.css" />
-    <style>
-      body {
-        background-color: #1a1a1a;
-        overflow-x: hidden;
-      }
+    <title>Test Page</title>
+</head>
+<body>
+</body>
+</html>
 
-      .scroll-frames-container {
-        position: fixed;
-        top: 60px;
+      .test-block-overlay-top,
+      .test-block-overlay-bottom {
+        position: absolute;
         left: 0;
-        width: 100%;
-        height: calc(100vh - 60px);
-        background-color: #000;
+        right: 0;
+        height: 15%;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
-        padding-left: 20px;
-        z-index: -1;
+        padding: 0.75rem 1rem;
+        color: #fff;
+        pointer-events: none;
+        z-index: 1;
       }
 
-      .scroll-frames-image {
-        max-width: 66%;
-        max-height: 66%;
+      .test-block-overlay-top {
+        top: 0;
+        background: linear-gradient(
+          180deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        justify-content: flex-start;
+        border-radius: 10px 10px 0 0;
+      }
+
+      .test-block-overlay-bottom {
+        bottom: 0;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          rgba(0, 0, 0, 0.3) 100%
+        );
+        justify-content: flex-start;
+        gap: 0.5rem;
+        border-radius: 0 0 10px 10px;
+      }
+
+      .test-block-title {
+        margin: 0;
+        font-size: 1.1rem;
+        font-weight: 700;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.35);
+      }
+
+      .test-block-overlay-bottom .badge {
+        pointer-events: auto;
+      }
+
+      .modal-dialog {
+        max-width: 68vw;
+      }
+
+      .modal-body {
+        padding: 0;
+      }
+
+      .modal-content-wrapper {
+        display: flex;
+        aspect-ratio: 2 / 1;
+        overflow: hidden;
+      }
+
+      .modal-image-section {
+        flex: 3;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .modal-image-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+      }
+
+      .modal-image-section img.fade-out {
+        opacity: 0;
+        transform: scale(0.95);
+      }
+
+      .modal-image-section img.fade-in {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      .nav-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background: rgba(0, 0, 0, 0.45);
+        color: #fff;
+        border: none;
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 0.2s;
+        z-index: 5;
+      }
+
+      .nav-arrow:hover {
+        background: rgba(0, 0, 0, 0.65);
+      }
+
+      .nav-arrow-left {
+        left: 12px;
+      }
+
+      .nav-arrow-right {
+        right: 12px;
+      }
+
+      .nav-arrow img {
+        width: 90%;
+        height: 90%;
         object-fit: contain;
       }
 
-      .scroll-content {
-        position: relative;
-        z-index: 1;
-        min-height: 500vh;
-        background: transparent;
+      @media (max-width: 767.98px) {
+        .modal-dialog {
+          max-width: 95vw;
+          margin: 1rem auto;
+        }
+
+        .modal-content-wrapper {
+          flex-direction: column;
+          aspect-ratio: auto;
+          height: auto;
+        }
+
+        .modal-image-section {
+          height: 50vh;
+        }
+
+        .modal-details-section {
+          padding: 1rem;
+        }
+
+        .nav-arrow {
+          width: 44px;
+          height: 44px;
+        }
+
+        .nav-arrow-left {
+          left: 8px;
+        }
+
+        .nav-arrow-right {
+          right: 8px;
+        }
+
+        .thumbnail {
+          min-width: 64px;
+          width: 64px;
+          height: 40px;
+        }
+      }
+
+      .modal-details-section {
+        flex: 2;
+        padding: 2rem;
+        overflow-y: auto;
+      }
+
+      .thumbnail-gallery {
+        display: flex;
+        gap: 0.5rem;
+        padding: 1rem;
+        background-color: #f8f9fa;
+        overflow-x: auto;
+      }
+
+      .thumbnail {
+        min-width: 80px;
+        width: 80px;
+        height: 48px;
+        object-fit: cover;
+        border: 2px solid transparent;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+
+      .thumbnail:hover {
+        border-color: #6c757d;
+      }
+
+      .thumbnail.active {
+        border-color: #008e44;
+        box-shadow: 0 0 0 2px rgba(0, 142, 68, 0.2);
+      }
+
+      .modal-header {
+        background: linear-gradient(135deg, #008e44 0%, #006633 100%);
+        color: white;
+        border-bottom: none;
+        padding: 1.5rem 2rem;
+      }
+
+      .modal-title {
+        font-weight: 700;
+        font-size: 1.75rem;
+        letter-spacing: 0.5px;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+      }
+
+      .modal-header .btn-close {
+        filter: brightness(0) invert(1);
+        opacity: 0.8;
+      }
+
+      .modal-header .btn-close:hover {
+        opacity: 1;
       }
     </style>
   </head>
@@ -86,92 +271,220 @@
       </nav>
     </header>
 
-    <!-- Scroll frames container -->
-    <div class="scroll-frames-container">
-      <img id="frameImage" class="scroll-frames-image" src="" alt="Frame" />
+    <!-- Test Container -->
+    <main class="test-container">
+      <h1>Image Test Block</h1>
+      <p>Simple block with just an image (5:3 aspect ratio)</p>
+
+      <div
+        class="test-block"
+        data-bs-toggle="modal"
+        data-bs-target="#projectModal"
+      >
+        <img src="static/img/spider_Behind_tank.jpg" alt="Test image" />
+        <div class="test-block-overlay-top">
+          <h4 class="test-block-title">Spider Digger Operation</h4>
+        </div>
+        <div class="test-block-overlay-bottom">
+          <span class="badge brand-green-bg">Drilling</span>
+        </div>
+      </div>
+    </main>
+
+    <!-- Modal Popup -->
+    <div
+      class="modal fade"
+      id="projectModal"
+      tabindex="-1"
+      aria-labelledby="projectModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="projectModalLabel">
+              Spider Digger Operation
+            </h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="thumbnail-gallery">
+            <img
+              src="static/img/spider_Behind_tank.jpg"
+              alt="Image 1"
+              class="thumbnail active"
+              data-index="0"
+              onclick="changeModalImage('static/img/spider_Behind_tank.jpg', 0)"
+            />
+            <img
+              src="static/img/digging_tank_hole.jpg"
+              alt="Image 2"
+              class="thumbnail"
+              data-index="1"
+              onclick="changeModalImage('static/img/digging_tank_hole.jpg', 1)"
+            />
+            <img
+              src="static/img/OutOfTheHole.jpg"
+              alt="Image 3"
+              class="thumbnail"
+              data-index="2"
+              onclick="changeModalImage('static/img/OutOfTheHole.jpg', 2)"
+            />
+            <img
+              src="static/img/FallenTree_side.jpg"
+              alt="Image 4"
+              class="thumbnail"
+              data-index="3"
+              onclick="changeModalImage('static/img/FallenTree_side.jpg', 3)"
+            />
+            <img
+              src="static/img/CassBay_Drilling1.jpg"
+              alt="Image 5"
+              class="thumbnail"
+              data-index="4"
+              onclick="changeModalImage('static/img/CassBay_Drilling1.jpg', 4)"
+            />
+          </div>
+          <div class="modal-body">
+            <div class="modal-content-wrapper">
+              <div class="modal-image-section">
+                <button
+                  class="nav-arrow nav-arrow-left"
+                  onclick="showPrevImage(event)"
+                >
+                  <img
+                    src="static/img/Icons/Bucket_icon_left.ico"
+                    alt="Previous"
+                  />
+                </button>
+                <img
+                  id="modalMainImage"
+                  src="static/img/spider_Behind_tank.jpg"
+                  alt="Spider Digger Operation"
+                />
+                <button
+                  class="nav-arrow nav-arrow-right"
+                  onclick="showNextImage(event)"
+                >
+                  <img
+                    src="static/img/Icons/Bucket_icon_right.ico"
+                    alt="Next"
+                  />
+                </button>
+              </div>
+              <div class="modal-details-section">
+                <h6>Project Details</h6>
+                <p>
+                  This is a detailed view of the Spider Digger Operation
+                  project.
+                </p>
+                <ul>
+                  <li><strong>Location:</strong> Christchurch, Canterbury</li>
+                  <li><strong>Category:</strong> Drilling</li>
+                  <li><strong>Status:</strong> Completed</li>
+                  <li><strong>Year:</strong> 2025</li>
+                </ul>
+                <h6>Description</h6>
+                <p>
+                  Specialized excavation work using our spider digger technology
+                  for challenging terrain access.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- Content to enable scrolling -->
-    <div class="scroll-content"></div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-      // Array of frame images (all images)
-      const frames = [
-        "static/img/frames/PXL_20251126_210848409~2_0003.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0004.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0005.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0006.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0007.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0008.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0009.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0010.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0011.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0012.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0013.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0014.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0015.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0016.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0017.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0018.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0019.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0020.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0021.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0022.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0023.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0024.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0025.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0026.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0027.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0028.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0029.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0030.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0031.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0032.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0033.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0034.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0035.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0036.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0037.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0038.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0039.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0040.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0041.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0042.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0043.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0044.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0045.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0046.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0047.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0048.jpg",
-        "static/img/frames/PXL_20251126_210848409~2_0049.jpg",
+      const modalImages = [
+        { src: "static/img/spider_Behind_tank.jpg", alt: "Image 1" },
+        { src: "static/img/digging_tank_hole.jpg", alt: "Image 2" },
+        { src: "static/img/OutOfTheHole.jpg", alt: "Image 3" },
+        { src: "static/img/FallenTree_side.jpg", alt: "Image 4" },
+        { src: "static/img/CassBay_Drilling1.jpg", alt: "Image 5" },
       ];
 
-      const frameImage = document.getElementById("frameImage");
-      let currentFrameIndex = 0;
+      let currentImageIndex = 0;
+      let fadeOutTimeout = null;
+      let fadeInTimeout = null;
 
-      // Set initial image
-      frameImage.src = frames[0];
+      function renderModalImage(index) {
+        currentImageIndex = index;
+        const mainImg = document.getElementById("modalMainImage");
+        const image = modalImages[index];
+        if (!mainImg || !image) return;
 
-      // Handle scroll events
-      window.addEventListener("scroll", () => {
-        // Calculate scroll progress (0 to 1)
-        const scrollHeight =
-          document.documentElement.scrollHeight - window.innerHeight;
-        const scrollProgress = window.scrollY / scrollHeight;
+        // Clear pending timeouts to prevent flicker on rapid nav
+        if (fadeOutTimeout) clearTimeout(fadeOutTimeout);
+        if (fadeInTimeout) clearTimeout(fadeInTimeout);
+        mainImg.classList.remove("fade-out", "fade-in");
 
-        // Calculate which frame to show based on scroll progress
-        const frameIndex = Math.min(
-          Math.floor(scrollProgress * frames.length),
-          frames.length - 1
-        );
+        // Add fade-out effect
+        mainImg.classList.add("fade-out");
 
-        // Update image if frame changed
-        if (frameIndex !== currentFrameIndex) {
-          currentFrameIndex = frameIndex;
-          frameImage.src = frames[frameIndex];
+        // Wait for fade-out, then change image and fade-in
+        fadeOutTimeout = setTimeout(() => {
+          mainImg.src = image.src;
+          mainImg.alt = image.alt;
+          mainImg.classList.remove("fade-out");
+          mainImg.classList.add("fade-in");
+
+          // Remove fade-in class after animation
+          fadeInTimeout = setTimeout(() => {
+            mainImg.classList.remove("fade-in");
+          }, 300);
+        }, 150);
+
+        document.querySelectorAll(".thumbnail").forEach((thumb, i) => {
+          thumb.classList.toggle("active", i === index);
+        });
+      }
+
+      function changeModalImage(imageSrc, idx) {
+        const index =
+          typeof idx === "number"
+            ? idx
+            : modalImages.findIndex((img) => img.src === imageSrc);
+        if (index >= 0) {
+          renderModalImage(index);
+        }
+      }
+
+      function showPrevImage(evt) {
+        if (evt) evt.stopPropagation();
+        const nextIndex =
+          (currentImageIndex - 1 + modalImages.length) % modalImages.length;
+        renderModalImage(nextIndex);
+      }
+
+      function showNextImage(evt) {
+        if (evt) evt.stopPropagation();
+        const nextIndex = (currentImageIndex + 1) % modalImages.length;
+        renderModalImage(nextIndex);
+      }
+
+      document.addEventListener("keydown", (e) => {
+        const modal = document.getElementById("projectModal");
+        if (!modal || !modal.classList.contains("show")) return;
+        if (e.key === "ArrowLeft") {
+          e.preventDefault();
+          showPrevImage();
+        } else if (e.key === "ArrowRight") {
+          e.preventDefault();
+          showNextImage();
         }
       });
+
+      // Ensure the first image is active on load
+      document.addEventListener("DOMContentLoaded", () => {
+        renderModalImage(0);
+      });
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
