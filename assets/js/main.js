@@ -34,25 +34,23 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.card, .project-card');
-        elements.forEach(element => {
-            const elementPosition = element.getBoundingClientRect().top;
-            const screenPosition = window.innerHeight / 1.2;
-            
-            if (elementPosition < screenPosition) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
-            }
-        });
-    };
+    const animatedItems = document.querySelectorAll('.card, .project-card');
 
-    document.querySelectorAll('.card, .project-card').forEach(item => {
-        item.style.opacity = '0';
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    animatedItems.forEach(item => {
+        item.classList.add('scroll-animate');
     });
 
-    window.addEventListener('load', animateOnScroll);
-    window.addEventListener('scroll', animateOnScroll);
+    const observer = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                obs.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -10% 0px'
+    });
+
+    animatedItems.forEach(item => observer.observe(item));
 });
