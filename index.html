@@ -489,11 +489,17 @@
           const sectionHeight = servicesSection.offsetHeight;
           const windowHeight = window.innerHeight;
 
-          // Calculate how far we've scrolled through the section (0 to 1)
-          // Start only when the section has fully entered the viewport (~100%)
-          const startThreshold = windowHeight;
-          const scrollRange = sectionHeight + windowHeight * 0.75;
-          const progressRaw = (startThreshold - rect.top) / scrollRange;
+          // Hold on the first frame until the section top reaches the viewport top
+          if (rect.top > 0) {
+            currentFrame = 0;
+            frameImg.src = frames[0];
+            ticking = false;
+            return;
+          }
+
+          // Progress from top hitting viewport (rect.top=0) to fully past viewport (rect.top=-sectionHeight)
+          const scrollRange = sectionHeight;
+          const progressRaw = (-rect.top) / scrollRange;
           const scrollProgress = Math.max(0, Math.min(1, progressRaw));
 
           // Map scroll progress to frame index
