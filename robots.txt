@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /change\ website.txt
+
+Sitemap: https://steepworks.co.nz/sitemap.xml
