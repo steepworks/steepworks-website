@@ -3,23 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us - Steep Works</title>
+    <title>About - Steep Works</title>
     <link
       rel="icon"
       type="image/x-icon"
-      href="static/img/Favicon/favicon.ico"
+      href="https://steepworks.co.nz/static/img/Favicon/favicon.ico"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="static/img/Favicon/favicon-16x16.png"
+      href="https://steepworks.co.nz/static/img/Favicon/favicon-16x16.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="static/img/Favicon/favicon-32x32.png"
+      href="https://steepworks.co.nz/static/img/Favicon/favicon-32x32.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://steepworks.co.nz/static/img/Favicon/favicon-32x32.png"
     />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -30,9 +35,314 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <style>
+      .about-header {
+        background: linear-gradient(135deg, #008e44 0%, #006633 100%);
+        color: white;
+        padding: 5rem 0 6rem;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-header::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 20% 50%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 255, 255, 0.08) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      .about-header::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(
+          180deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.05) 100%
+        );
+        pointer-events: none;
+      }
+
+      .about-header .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .about-header h1 {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1.25rem;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        letter-spacing: -0.5px;
+      }
+
+      .about-header p {
+        font-size: 1.35rem;
+        opacity: 0.95;
+        max-width: 700px;
+        margin: 0 auto;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        font-weight: 300;
+        letter-spacing: 0.3px;
+      }
+
+      .about-header .decorative-line {
+        width: 80px;
+        height: 4px;
+        background: rgba(255, 255, 255, 0.8);
+        margin: 1.5rem auto;
+        border-radius: 2px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .about-section {
+        padding: 2.5rem 0;
+      }
+
+      .team-card {
+        background: white;
+        border-radius: 8px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        height: 100%;
+      }
+
+      .team-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+      }
+
+      .team-image {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .team-name {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #212529;
+        margin-bottom: 0.75rem;
+      }
+
+      .team-role {
+        color: #008e44;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .team-bio {
+        color: #6c757d;
+        line-height: 1.8;
+      }
+
+      .about-intro {
+        background: white;
+        border-radius: 8px;
+        padding: 3rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-bottom: 3rem;
+      }
+
+      .about-intro h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: #008e44;
+        margin-bottom: 1.5rem;
+      }
+
+      .about-intro p {
+        font-size: 1.1rem;
+        color: #6c757d;
+        line-height: 1.9;
+        margin-bottom: 1rem;
+      }
+
+      .about-intro p:last-child {
+        margin-bottom: 0;
+      }
+
+      .about-feature {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 2rem;
+      }
+
+      .about-feature-icon {
+        color: #008e44;
+        font-size: 1.75rem;
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+        margin-top: 0.25rem;
+      }
+
+      .about-feature-content h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #212529;
+        margin-bottom: 0.5rem;
+      }
+
+      .about-feature-content p {
+        color: #6c757d;
+        margin-bottom: 0;
+      }
+
+      .cta-section {
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: radial-gradient(
+            circle at 30% 50%,
+            rgba(255, 255, 255, 0.15) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 70% 70%,
+            rgba(255, 255, 255, 0.1) 0%,
+            transparent 50%
+          );
+        pointer-events: none;
+      }
+
+      .cta-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 60px;
+        background: linear-gradient(
+          0deg,
+          transparent 0%,
+          rgba(0, 0, 0, 0.05) 100%
+        );
+        pointer-events: none;
+      }
+
+      .cta-section .container {
+        position: relative;
+        z-index: 1;
+      }
+
+      .cta-section h2 {
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        letter-spacing: -0.5px;
+      }
+
+      .cta-section p {
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        font-weight: 300;
+        letter-spacing: 0.3px;
+      }
+
+      .cta-section .btn {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        transition: all 0.3s ease;
+      }
+
+      .cta-section .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .hero-image {
+        width: 100%;
+        height: 35vh;
+        object-fit: cover;
+        object-position: center;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        border: 2px solid #666;
+        display: block;
+        margin-bottom: 3rem;
+      }
+
+      .image-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 1.5rem;
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+        border-radius: 8px;
+        box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5);
+        border: 2px solid #666;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+      }
+
+      .gallery-image:hover {
+        transform: scale(1.04);
+        box-shadow: 0 18px 38px rgba(0, 0, 0, 0.35);
+      }
+
+      @media (max-width: 768px) {
+        .about-header h1 {
+          font-size: 2rem;
+        }
+
+        .about-header p {
+          font-size: 1.1rem;
+        }
+
+        .about-intro {
+          padding: 2rem;
+        }
+
+        .about-intro h2 {
+          font-size: 1.75rem;
+        }
+
+        .team-card {
+          padding: 1.5rem;
+        }
+
+        .hero-image {
+          height: 35vh;
+        }
+
+        .gallery-image {
+          height: 250px;
+        }
+      }
+    </style>
   </head>
   <body>
-    <header class="sticky-top" style="position: relative; z-index: 5">
+    <!-- Header Component -->
+    <header class="sticky-top">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
           <a class="navbar-brand" href="index.html">
@@ -73,192 +383,228 @@
       </nav>
     </header>
 
-    <main class="about-page">
-      <section class="page-header brand-green-bg text-white py-5">
+    <main>
+      <!-- Green Banner -->
+      <section class="services-header">
         <div class="container">
-          <h1 class="display-4">About Steep Works</h1>
+          <h2 style="font-size: 2.5rem; margin-bottom: 1rem">
+            about Steep Works
+          </h2>
           <div class="decorative-line"></div>
-          <p class="lead mb-0">
-            Civil engineering and spider digger specialists.
-          </p>
+          <p>Steep-site specialists delivering precise work in tough places.</p>
         </div>
       </section>
 
-      <section
-        class="py-1"
-        style="position: relative; min-height: 100vh; overflow: visible"
-      >
-        <div
-          class="container-fluid px-0 mb-1"
-          style="position: relative; z-index: 2"
-        >
-          <img
-            src="static/img/HQ/little_quarry_us.JPG"
-            alt="Little Quarry Team"
-            class="img-fluid rounded shadow"
-            style="
-              width: 100vw;
-              max-width: none;
-              height: 50vh;
-              object-fit: cover;
-              object-position: center;
-              clip-path: inset(12.5% 0 12.5% 0);
-              display: block;
-              box-shadow: 0 28px 90px rgba(0, 0, 0, 0.55),
-                inset 0 0 80px rgba(0, 0, 0, 0.65);
-              border: 2px solid #666;
-            "
-          />
+      <!-- Image Gallery -->
+      <section class="about-section">
+        <div class="container-fluid px-0">
+          <div class="container image-gallery">
+            <img
+              src="static/img/HQ/kaikoura_rope_access.jpg"
+              alt="Kaikoura Rope Access"
+              class="gallery-image"
+            />
+            <img
+              src="static/img/HQ/Bauma.jpg"
+              alt="Bauma Exhibition"
+              class="gallery-image"
+            />
+            <img
+              src="static/img/HQ/little_quarry_us.JPG"
+              alt="Little Quarry"
+              class="gallery-image"
+              style="object-position: center 20%"
+            />
+          </div>
         </div>
+      </section>
 
-        <div class="container" style="position: relative; z-index: 2">
-          <div class="row align-items-center g-4">
-            <div class="col-12 col-lg-4 text-center">
-              <img
-                src="static/img/HQ/kaikoura_rope_access.jpg"
-                alt="Kaikoura Rope Access"
-                class="img-fluid rounded shadow d-block mx-auto about-hover-zoom"
-                style="
-                  width: 100%;
-                  max-width: 100%;
-                  height: 420px;
-                  object-fit: cover;
-                  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5),
-                    inset 0 0 60px rgba(0, 0, 0, 0.6);
-                  border: 2px solid #666;
-                "
-              />
-            </div>
-            <div class="col-md-12 col-lg-4">
-              <div
-                class="contact-box"
-                style="
-                  padding: 3rem 2rem;
-                  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5);
-                "
-              >
-                <h2 class="section-title text-center mb-4">Who We Are</h2>
-                <p class="lead text-center mb-4">
-                  Steep Works is a specialist civil engineering company based in
-                  Christchurch, Canterbury. We utilize advanced spider digger
-                  technology to perform excavation, drilling, trenching,
-                  landscaping, and demolition services in challenging terrain
-                  where traditional machinery cannot operate.
-                </p>
-                <p class="text-center mb-4">
-                  Our unique multi-legged excavator design and advanced
-                  stability controls allow us to navigate steep slopes,
-                  wetlands, and delicate ecosystems effortlessly while
-                  minimizing environmental impact through reduced soil
-                  compaction.
-                </p>
-                <p class="text-center mb-0">
-                  With a team of 2-10 dedicated professionals, we're committed
-                  to delivering exceptional results for both residential and
-                  commercial projects throughout the Canterbury region.
-                </p>
+      <!-- About Introduction Section -->
+      <section class="about-section">
+        <div class="container">
+          <div class="about-intro">
+            <h2>Who We Are</h2>
+            <p>
+              Steep Works is a specialist civil engineering company based in
+              Christchurch, Canterbury. We utilize advanced spider digger
+              technology to perform excavation, drilling, trenching,
+              landscaping, and demolition services in challenging terrain where
+              traditional machinery cannot operate.
+            </p>
+            <p>
+              Our unique multi-legged excavator design and advanced stability
+              controls allow us to navigate steep slopes, wetlands, and delicate
+              ecosystems effortlessly while minimizing environmental impact
+              through reduced soil compaction.
+            </p>
+            <p>
+              With a dedicated team of professionals, we're committed to
+              delivering exceptional results for both residential and commercial
+              projects throughout the Canterbury region.
+            </p>
+          </div>
+
+          <!-- Key Features -->
+          <div class="row g-4 mb-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="about-feature">
+                <div class="about-feature-icon">
+                  <i class="fas fa-mountain"></i>
+                </div>
+                <div class="about-feature-content">
+                  <h3>Steep Access</h3>
+                  <p>
+                    Specialized equipment for steep terrain and difficult access
+                    areas.
+                  </p>
+                </div>
               </div>
             </div>
-            <div class="col-12 col-lg-4 text-center">
-              <img
-                src="static/img/HQ/Bauma.jpg"
-                alt="Bauma Exhibition"
-                class="img-fluid rounded shadow d-block mx-auto about-hover-zoom"
-                style="
-                  width: 100%;
-                  max-width: 100%;
-                  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5),
-                    inset 0 0 60px rgba(0, 0, 0, 0.6);
-                  border: 2px solid #666;
-                "
-              />
+            <div class="col-md-6 col-lg-3">
+              <div class="about-feature">
+                <div class="about-feature-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="about-feature-content">
+                  <h3>Low Impact</h3>
+                  <p>Minimized environmental footprint and soil protection.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="about-feature">
+                <div class="about-feature-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="about-feature-content">
+                  <h3>Expert Team</h3>
+                  <p>
+                    Dedicated professionals with extensive industry experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="about-feature">
+                <div class="about-feature-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <div class="about-feature-content">
+                  <h3>Reliability</h3>
+                  <p>
+                    Trusted partners for challenging projects across region.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section style="position: relative; z-index: 2; padding: 3rem 0 4rem">
+
+      <!-- Team Section -->
+      <section class="about-section bg-light">
         <div class="container">
-          <div
-            class="contact-box"
-            style="
-              padding: 3rem 2rem;
-              box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5);
-            "
-          >
-            <div class="row g-4 align-items-center mb-4">
-              <div class="col-md-4">
+          <div style="text-align: center; margin-bottom: 3rem">
+            <h2
+              style="
+                font-size: 2.5rem;
+                font-weight: 700;
+                color: #212529;
+                margin-bottom: 1rem;
+              "
+            >
+              Our Team
+            </h2>
+            <p
+              style="
+                font-size: 1.1rem;
+                color: #6c757d;
+                max-width: 600px;
+                margin: 0 auto;
+              "
+            >
+              Meet the dedicated professionals behind Steep Works
+            </p>
+          </div>
+
+          <div class="row g-4">
+            <!-- Team Member 1 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="team-card">
                 <div
                   style="
-                    width: 80%;
-                    padding-top: 80%;
-                    background: repeating-linear-gradient(
-                      45deg,
-                      rgba(0, 0, 0, 0.05),
-                      rgba(0, 0, 0, 0.05) 10px,
-                      rgba(0, 0, 0, 0.08) 10px,
-                      rgba(0, 0, 0, 0.08) 20px
+                    width: 100%;
+                    height: 250px;
+                    background: linear-gradient(
+                      135deg,
+                      #f0f0f0 0%,
+                      #e0e0e0 100%
                     );
-                    border: 2px dashed #666;
                     border-radius: 8px;
-                    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
-                    margin: 0 auto;
+                    margin-bottom: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #999;
+                    font-size: 2rem;
                   "
-                  aria-label="Placeholder for square image"
-                ></div>
-              </div>
-              <div class="col-md-8">
-                <h3 class="h4 mb-3">Mattia Belingheri</h3>
-                <p class="mb-0">The driver, that's about it.</p>
+                >
+                  <i class="fas fa-user"></i>
+                </div>
+                <h3 class="team-name">Mattia Belingheri</h3>
+                <p class="team-role">Equipment Operator</p>
+                <p class="team-bio">
+                  Our skilled operator ensuring smooth and efficient project
+                  execution.
+                </p>
               </div>
             </div>
 
-            <div class="row g-4 align-items-center mb-4 flex-md-row-reverse">
-              <div class="col-md-4 text-center">
+            <!-- Team Member 2 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="team-card">
                 <img
                   src="static/img/HQ/Val_face.JPG"
                   alt="Valentina Piantoni"
-                  style="
-                    width: 80%;
-                    aspect-ratio: 1 / 1;
-                    object-fit: cover;
-                    border: 2px solid #666;
-                    border-radius: 8px;
-                    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
-                  "
+                  class="team-image"
                 />
-              </div>
-              <div class="col-md-8 text-end">
-                <h3 class="h4 mb-3">Valentina Piantoni</h3>
-                <p class="mb-0">the Boss, we all know it.</p>
+                <h3 class="team-name">Valentina Piantoni</h3>
+                <p class="team-role">Director</p>
+                <p class="team-bio">
+                  Leading Steep Works with expertise and vision, ensuring every
+                  project exceeds expectations.
+                </p>
               </div>
             </div>
 
-            <div class="row g-4 align-items-center">
-              <div class="col-md-4">
+            <!-- Team Member 3 -->
+            <div class="col-md-6 col-lg-4">
+              <div class="team-card">
                 <div
                   style="
-                    width: 80%;
-                    padding-top: 80%;
-                    background: repeating-linear-gradient(
-                      45deg,
-                      rgba(0, 0, 0, 0.05),
-                      rgba(0, 0, 0, 0.05) 10px,
-                      rgba(0, 0, 0, 0.08) 10px,
-                      rgba(0, 0, 0, 0.08) 20px
+                    width: 100%;
+                    height: 250px;
+                    background: linear-gradient(
+                      135deg,
+                      #f0f0f0 0%,
+                      #e0e0e0 100%
                     );
-                    border: 2px dashed #666;
                     border-radius: 8px;
-                    box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.35);
-                    margin: 0 auto;
+                    margin-bottom: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: #999;
+                    font-size: 2rem;
                   "
-                  aria-label="Placeholder for square image"
-                ></div>
-              </div>
-              <div class="col-md-8">
-                <h3 class="h4 mb-3">DJ Matheson</h3>
-                <p class="mb-0">
-                  Add your text here. This area is paired with the left square
-                  image placeholder above. Replace with your content.
+                >
+                  <i class="fas fa-user"></i>
+                </div>
+                <h3 class="team-name">DJ Matheson</h3>
+                <p class="team-role">Project Manager</p>
+                <p class="team-bio">
+                  Coordinating seamless project delivery with attention to
+                  detail and client satisfaction.
                 </p>
               </div>
             </div>
@@ -266,6 +612,7 @@
         </div>
       </section>
 
+      <!-- CTA Section -->
       <section class="cta-section py-5 bg-danger text-white">
         <div class="container">
           <div class="row align-items-center">
@@ -285,10 +632,8 @@
       </section>
     </main>
 
-    <footer
-      class="bg-dark text-white py-5 mt-5"
-      style="position: relative; z-index: 4"
-    >
+    <!-- Footer Component -->
+    <footer class="bg-dark text-white py-5 mt-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-4 mb-4 mb-lg-0">
@@ -302,13 +647,24 @@
                 href="https://www.facebook.com/SteepWorks"
                 target="_blank"
                 class="text-white me-3"
+                aria-label="Facebook"
               >
                 <i class="fab fa-facebook-f fa-lg"></i>
               </a>
-              <a href="#" class="text-white me-3">
+              <a
+                href="https://www.linkedin.com/company/steep-works-ltd"
+                target="_blank"
+                class="text-white me-3"
+                aria-label="LinkedIn"
+              >
                 <i class="fab fa-linkedin-in fa-lg"></i>
               </a>
-              <a href="#" class="text-white">
+              <a
+                href="https://www.instagram.com/steepworksltd/"
+                target="_blank"
+                class="text-white"
+                aria-label="Instagram"
+              >
                 <i class="fab fa-instagram fa-lg"></i>
               </a>
             </div>
@@ -326,7 +682,7 @@
                 <a
                   href="projects.html"
                   class="text-white-75 text-decoration-none"
-                  >Gallery</a
+                  >Projects</a
                 >
               </li>
               <li class="mb-2">
@@ -355,28 +711,45 @@
             <h5 class="mb-3">Services</h5>
             <ul class="list-unstyled">
               <li class="mb-2">
-                <a href="#" class="text-white-75 text-decoration-none"
-                  >Excavation</a
+                <a
+                  href="services.html"
+                  class="text-white-75 text-decoration-none"
+                  >Earthworks</a
                 >
               </li>
               <li class="mb-2">
-                <a href="#" class="text-white-75 text-decoration-none"
+                <a
+                  href="services.html"
+                  class="text-white-75 text-decoration-none"
                   >Drilling</a
                 >
               </li>
               <li class="mb-2">
-                <a href="#" class="text-white-75 text-decoration-none"
-                  >Trenching</a
+                <a
+                  href="services.html"
+                  class="text-white-75 text-decoration-none"
+                  >Slope Stabilization</a
                 >
               </li>
               <li class="mb-2">
-                <a href="#" class="text-white-75 text-decoration-none"
-                  >Landscaping</a
+                <a
+                  href="services.html"
+                  class="text-white-75 text-decoration-none"
+                  >Roads</a
                 >
               </li>
               <li class="mb-2">
-                <a href="#" class="text-white-75 text-decoration-none"
+                <a
+                  href="services.html"
+                  class="text-white-75 text-decoration-none"
                   >Demolition</a
+                >
+              </li>
+              <li class="mb-2">
+                <a
+                  href="services.html"
+                  class="text-white-75 text-decoration-none"
+                  >Landscaping</a
                 >
               </li>
             </ul>
@@ -406,7 +779,10 @@
 
         <div class="row">
           <div class="col-md-6 text-center text-md-start">
-            <p class="mb-0">&copy; 2025 Steep Works. All rights reserved.</p>
+            <p class="mb-0">
+              &copy; <span id="currentYear">2025</span>
+              Steep Works. All rights reserved.
+            </p>
           </div>
           <div class="col-md-6 text-center text-md-end">
             <p class="mb-0">Civil Engineering | Spider Digger Specialists</p>
@@ -415,7 +791,13 @@
       </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+      document.getElementById("currentYear").textContent =
+        new Date().getFullYear();
+    </script>
+
     <script src="assets/js/main.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

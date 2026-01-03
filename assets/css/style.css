@@ -72,7 +72,7 @@ body.contact-page::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('../../static/img/HQ/big_tree_L2.jpg');
+    background-image: url('/static/img/HQ/big_tree_L2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -849,6 +849,7 @@ footer {
     border: 1px solid #e9ecef;
     border-radius: 8px;
     overflow: hidden;
+    scroll-margin-top: 100px;
 }
 
 .service-card:hover {
