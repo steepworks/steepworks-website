@@ -490,10 +490,10 @@
           const windowHeight = window.innerHeight;
 
           // Calculate how far we've scrolled through the section (0 to 1)
-          const scrollProgress = Math.max(
-            0,
-            Math.min(1, -rect.top / (sectionHeight - windowHeight))
-          );
+          // Use a larger range (section height + half viewport) so all frames can play
+          const scrollRange = sectionHeight + windowHeight * 0.5;
+          const progressRaw = (windowHeight - rect.top) / scrollRange;
+          const scrollProgress = Math.max(0, Math.min(1, progressRaw));
 
           // Map scroll progress to frame index
           const frameIndex = Math.floor(scrollProgress * (frames.length - 1));
