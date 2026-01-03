@@ -412,7 +412,7 @@ body {
 .services-section {
     background-color: #f8f9fa;
     position: relative;
-    min-height: 300vh;
+    min-height: 500vh;
 }
 
 .services-sticky-wrapper {
@@ -448,7 +448,8 @@ body {
 }
 
 .frame-animation-container {
-    position: relative;
+    position: sticky;
+    top: 100px;
     width: 100%;
     aspect-ratio: 1518 / 1080;
     background-color: #000;
