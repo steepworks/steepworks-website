@@ -456,6 +456,12 @@ body {
     pointer-events: none;
 }
 
+@media (max-width: 991.98px) {
+    .services-text-section::before {
+        display: none;
+    }
+}
+
 .services-text-section > * {
     position: relative;
     z-index: 1;
