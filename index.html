@@ -37,46 +37,7 @@
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
   <body>
-    <header class="sticky-top">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="static/img/Logo_small_clear.png"
-              alt="Steep Works"
-              height="60"
-            />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="services.html">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="projects.html">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <div id="header-container"></div>
 
     <main>
       <section class="hero position-relative">
@@ -90,15 +51,14 @@
             <div class="hero-content">
               <p class="lead mb-4">Specialist Excavation Services</p>
               <p class="h5 mb-5">
-                Expert spider digger operations for challenging terrain in
-                Christchurch
+                Expert spider digger operations for challenging terrain
               </p>
               <div class="hero-buttons">
-                <a href="projects.html" class="btn btn-primary btn-lg me-3">
-                  View Our Work
+                <a href="services.html" class="btn btn-primary btn-lg me-3">
+                  What We Do
                 </a>
-                <a href="contact.html" class="btn btn-outline-light btn-lg">
-                  Get in Touch
+                <a href="about.html" class="btn btn-outline-light btn-lg">
+                  About Us
                 </a>
               </div>
             </div>
@@ -111,7 +71,9 @@
           <div class="row align-items-center">
             <div class="col-lg-6 mb-4 mb-lg-0">
               <h2 class="section-title">Welcome to Steep Works</h2>
-              <p class="lead mb-4">Civil Engineering & Specialist Excavation</p>
+              <p class="lead mb-4">
+                Geotechnical Engineering & Specialist Excavation
+              </p>
               <p>
                 Our business utilizes a specialist excavator, known as a spider
                 digger, to perform various tasks such as drilling, digging,
@@ -120,34 +82,6 @@
                 Digger can navigate steep slopes, wetlands, and delicate
                 ecosystems effortlessly while minimizing environmental impact.
               </p>
-              <div class="row mt-4">
-                <div class="col-md-6 mb-3">
-                  <div class="d-flex">
-                    <div class="me-3 brand-green-text">
-                      <i class="fas fa-check-circle fa-2x"></i>
-                    </div>
-                    <div>
-                      <h4 class="h5 mb-1">Expert Team</h4>
-                      <p class="mb-0">
-                        Certified professionals with years of experience
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="d-flex">
-                    <div class="me-3 brand-green-text">
-                      <i class="fas fa-check-circle fa-2x"></i>
-                    </div>
-                    <div>
-                      <h4 class="h5 mb-1">Quality Service</h4>
-                      <p class="mb-0">
-                        Commitment to excellence in every project
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
             <div class="col-lg-6">
               <div
@@ -171,6 +105,64 @@
         </div>
       </section>
 
+      <section class="feature-highlights py-4">
+        <div class="container">
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="about-feature">
+                <div class="about-feature-icon">
+                  <i class="fas fa-mountain"></i>
+                </div>
+                <div class="about-feature-content">
+                  <h3>Steep Access</h3>
+                  <p>
+                    Specialized equipment for steep terrain and difficult access
+                    areas.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="about-feature">
+                <div class="about-feature-icon">
+                  <i class="fas fa-leaf"></i>
+                </div>
+                <div class="about-feature-content">
+                  <h3>Low Impact</h3>
+                  <p>Minimized environmental footprint and soil protection.</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="about-feature">
+                <div class="about-feature-icon">
+                  <i class="fas fa-star"></i>
+                </div>
+                <div class="about-feature-content">
+                  <h3>Expert Team</h3>
+                  <p>
+                    Dedicated professionals with extensive industry experience.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="about-feature">
+                <div class="about-feature-icon">
+                  <i class="fas fa-handshake"></i>
+                </div>
+                <div class="about-feature-content">
+                  <h3>Reliability</h3>
+                  <p>
+                    Trusted partners for challenging projects across region.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section class="services-section py-5 bg-light">
         <div class="services-sticky-wrapper">
           <div class="container">
@@ -178,13 +170,18 @@
               <div
                 class="col-lg-6 order-lg-2 mb-4 mb-lg-0 services-text-section"
               >
-                <h2 class="section-title">Our Services</h2>
-                <p class="lead mb-4">Comprehensive construction solutions</p>
+                <h2 class="section-title">Our Commitment</h2>
+                <p class="lead mb-4">
+                  The standards that guide our work on site
+                </p>
                 <p>
-                  We offer a wide range of specialized services to meet all your
-                  construction and excavation needs. Our team of experts is
-                  equipped with the latest technology and equipment to handle
-                  projects of any size and complexity.
+                  At Steep Works, every project is approached with care,
+                  precision, and a focus on delivering results that meet the
+                  technical expectations of the work. We take responsibility for
+                  the quality of what we do and hold ourselves to a consistently
+                  high standard. Our team brings genuine commitment to each
+                  site, applying skill, attention, and practical problem‑solving
+                  to ensure outcomes our clients can rely on.
                 </p>
               </div>
               <div class="col-lg-6 order-lg-1">
@@ -284,34 +281,35 @@
     <div id="footer-container"></div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/header-loader.js"></script>
     <script src="assets/js/footer-loader.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
       // Frame animation on scroll with parallax effect
       (function () {
         const frames = [
-          "/static/img/Frames2/PXL_20251126_210848409~2_0003.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0005.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0006.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0008.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0010.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0011.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0013.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0016.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0019.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0022.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0023.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0024.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0027.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0030.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0033.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0036.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0038.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0041.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0043.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0044.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0046.jpg",
-          "/static/img/Frames2/PXL_20251126_210848409~2_0048.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0003.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0005.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0006.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0008.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0010.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0011.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0013.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0016.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0019.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0022.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0023.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0024.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0027.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0030.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0033.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0036.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0038.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0041.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0043.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0044.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0046.jpg",
+          "static/img/Frames2/PXL_20251126_210848409~2_0048.jpg",
         ];
 
         const frameImg = document.getElementById("animatedFrame");
@@ -324,7 +322,6 @@
         function updateFrame() {
           const rect = servicesSection.getBoundingClientRect();
           const sectionHeight = servicesSection.offsetHeight;
-          const windowHeight = window.innerHeight;
 
           // Hold on the first frame until the section top reaches the viewport top
           if (rect.top > 0) {

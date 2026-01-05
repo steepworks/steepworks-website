@@ -72,12 +72,11 @@ body.contact-page::after {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('/static/img/HQ/big_tree_L2.JPG');
+    background-image: url('../../static/img/HQ/Droneview_L.JPG');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    transform: scaleX(-1);
     z-index: -2;
 }
 
@@ -88,7 +87,7 @@ body.contact-page::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0);
+    background-color: rgba(255, 255, 255, 0.3);
     z-index: -1;
     pointer-events: none;
 }
@@ -125,6 +124,21 @@ body {
         background:
             linear-gradient(to right, #ffffff 0%, #ffffff 100%) 0 0 / 100% 70px no-repeat,
             #ffffff;
+    }
+
+    /* Ensure mobile nav dropdown stays readable and full-width */
+    .navbar-collapse {
+        background: #212529;
+        padding: 0.75rem 0;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.75rem 1.25rem;
+        text-align: left;
+    }
+
+    .navbar-toggler {
+        border-color: rgba(255, 255, 255, 0.6);
     }
 }
 
@@ -462,6 +476,25 @@ body {
     justify-content: center;
 }
 
+@media (max-width: 991.98px) {
+    .services-section {
+        min-height: auto;
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+
+    .services-sticky-wrapper {
+        position: static;
+        height: auto;
+    }
+
+    .frame-animation-container {
+        position: relative;
+        top: 0;
+        margin-bottom: 2rem;
+    }
+}
+
 .frame-animation-container img {
     width: 100%;
     height: 100%;
@@ -489,6 +522,37 @@ body {
     margin-bottom: 1rem;
     color: var(--dark-color);
     letter-spacing: -0.5px;
+}
+
+/* Feature Highlights */
+.feature-highlights {
+    background-color: #fff;
+}
+
+.about-feature {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 2rem;
+}
+
+.about-feature-icon {
+    color: #008e44;
+    font-size: 1.75rem;
+    margin-right: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 0.25rem;
+}
+
+.about-feature-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 0.5rem;
+}
+
+.about-feature-content p {
+    color: #6c757d;
+    margin-bottom: 0;
 }
 
 /* Responsive Adjustments */

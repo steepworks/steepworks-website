@@ -351,47 +351,7 @@
     </style>
   </head>
   <body>
-    <!-- Header Component -->
-    <header class="sticky-top">
-      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-          <a class="navbar-brand" href="index.html">
-            <img
-              src="static/img/Logo_small_clear.png"
-              alt="Steep Works"
-              height="60"
-            />
-          </a>
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="about.html">About</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="services.html">Services</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="projects.html">Projects</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="contact.html">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+    <div id="header-container"></div>
 
     <main>
       <!-- Green Banner -->
@@ -458,61 +418,6 @@
               and enhance your project with specialised services that add value,
               reduce risk, and keep work moving where access is difficult.
             </p>
-          </div>
-
-          <!-- Key Features -->
-          <div class="row g-4 mb-4">
-            <div class="col-md-6 col-lg-3">
-              <div class="about-feature">
-                <div class="about-feature-icon">
-                  <i class="fas fa-mountain"></i>
-                </div>
-                <div class="about-feature-content">
-                  <h3>Steep Access</h3>
-                  <p>
-                    Specialized equipment for steep terrain and difficult access
-                    areas.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="about-feature">
-                <div class="about-feature-icon">
-                  <i class="fas fa-leaf"></i>
-                </div>
-                <div class="about-feature-content">
-                  <h3>Low Impact</h3>
-                  <p>Minimized environmental footprint and soil protection.</p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="about-feature">
-                <div class="about-feature-icon">
-                  <i class="fas fa-star"></i>
-                </div>
-                <div class="about-feature-content">
-                  <h3>Expert Team</h3>
-                  <p>
-                    Dedicated professionals with extensive industry experience.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-lg-3">
-              <div class="about-feature">
-                <div class="about-feature-icon">
-                  <i class="fas fa-handshake"></i>
-                </div>
-                <div class="about-feature-content">
-                  <h3>Reliability</h3>
-                  <p>
-                    Trusted partners for challenging projects across region.
-                  </p>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
@@ -638,9 +543,9 @@
     <!-- Footer Container - Loaded Dynamically -->
     <div id="footer-container"></div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/header-loader.js"></script>
     <script src="assets/js/footer-loader.js"></script>
     <script src="assets/js/main.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>
