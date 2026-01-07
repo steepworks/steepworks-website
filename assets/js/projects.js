@@ -12,6 +12,7 @@ const projectsData = {
             "static/img/projects/Cass Bay/cassbay_drilling.jpg",
             "static/img/projects/Cass Bay/cassbay_driller.jpg",
             "static/img/projects/Cass Bay/cassbay_lateral.jpg",
+            "static/img/projects/Cass Bay/drilling_detailed.jpg",
         ],
     },
     slope: {
