@@ -24,16 +24,6 @@
     color: #fff;
 }
 
-.brand-green-soft {
-    background-color: rgba(0, 142, 68, 0.1) !important;
-    color: #008e44 !important;
-}
-
-.brand-red-bg {
-    background-color: #d31e28 !important;
-    color: #fff;
-}
-
 .brand-green-light {
     color: #00b359 !important;
 }
@@ -354,6 +344,7 @@ body {
 /* Project Showcase */
 .project-showcase {
     background-color: #fff;
+    margin-bottom: 2rem;
 }
 
 .project-card {
@@ -439,6 +430,7 @@ body {
 
 .services-text-section {
     position: relative;
+    padding: 0 15px;
 }
 
 .services-text-section::before {
@@ -457,8 +449,23 @@ body {
 }
 
 @media (max-width: 991.98px) {
+    .services-text-section {
+        padding: 0 12px;
+    }
+
     .services-text-section::before {
         display: none;
+    }
+
+    .services-text-section h2 {
+        font-size: 1.75rem;
+        word-break: break-word;
+    }
+
+    .services-text-section p {
+        font-size: 0.95rem;
+        word-break: break-word;
+        overflow-wrap: break-word;
     }
 }
 
@@ -763,9 +770,7 @@ footer {
 }
 
 /* Adjust spacing after testimonials removal */
-.project-showcase {
-    margin-bottom: 2rem;
-}
+
 
 /* Contact page boxes */
 .contact-box {

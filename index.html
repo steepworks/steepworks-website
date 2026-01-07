@@ -3,28 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Home - Steep Works</title>
+    <title>Steep Works</title>
     <link
       rel="icon"
       type="image/x-icon"
-      href="https://steepworks.co.nz/static/img/Favicon/favicon.ico"
+      href="/static/img/Favicon/favicon.ico"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="16x16"
-      href="https://steepworks.co.nz/static/img/Favicon/favicon-16x16.png"
+      href="/static/img/Favicon/favicon-16x16.png"
     />
     <link
       rel="icon"
       type="image/png"
       sizes="32x32"
-      href="https://steepworks.co.nz/static/img/Favicon/favicon-32x32.png"
+      href="/static/img/Favicon/favicon-32x32.png"
     />
     <link
       rel="apple-touch-icon"
       sizes="180x180"
-      href="https://steepworks.co.nz/static/img/Favicon/favicon-32x32.png"
+      href="/static/img/Favicon/favicon-512x512.png"
     />
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
@@ -180,17 +180,44 @@
                   technical expectations of the work. We take responsibility for
                   the quality of what we do and hold ourselves to a consistently
                   high standard. Our team brings genuine commitment to each
-                  site, applying skill, attention, and practical problem‑solving
+                  site, applying skill, attention, and practical problem-solving
                   to ensure outcomes our clients can rely on.
                 </p>
               </div>
               <div class="col-lg-6 order-lg-1">
-                <div class="frame-animation-container" id="frameAnimation">
+                <!-- Desktop: Frame animation -->
+                <div
+                  class="frame-animation-container d-none d-lg-block"
+                  id="frameAnimation"
+                >
                   <img
                     id="animatedFrame"
-                    src="static/img/frames/PXL_20251126_210848409~2_0003.jpg"
+                    src="static/img/Frames2/PXL_20251126_210848409~2_0003.jpg"
                     alt="Services Animation"
                   />
+                </div>
+                <!-- Mobile: Video -->
+                <div class="video-container d-lg-none">
+                  <video
+                    class="img-fluid rounded"
+                    autoplay
+                    muted
+                    loop
+                    playsinline
+                    poster="static/img/Frames2/PXL_20251126_210848409~2_0003.jpg"
+                    style="
+                      width: 100%;
+                      height: auto;
+                      border-radius: 10px;
+                      box-shadow: 0 22px 70px rgba(0, 0, 0, 0.5);
+                    "
+                  >
+                    <source
+                      src="static/img/HQ/Parallax_sub.mp4"
+                      type="video/mp4"
+                    />
+                    Your browser does not support the video tag.
+                  </video>
                 </div>
               </div>
             </div>
@@ -285,8 +312,11 @@
     <script src="assets/js/footer-loader.js"></script>
     <script src="assets/js/main.js"></script>
     <script>
-      // Frame animation on scroll with parallax effect
+      // Frame-by-frame animation on scroll (desktop only)
       (function () {
+        // Only run on desktop
+        if (window.innerWidth < 992) return;
+
         const frames = [
           "static/img/Frames2/PXL_20251126_210848409~2_0003.jpg",
           "static/img/Frames2/PXL_20251126_210848409~2_0005.jpg",
@@ -321,25 +351,24 @@
 
         function updateFrame() {
           const rect = servicesSection.getBoundingClientRect();
-          const sectionHeight = servicesSection.offsetHeight;
+          const sectionTop = rect.top;
+          const sectionHeight = rect.height;
+          const viewportHeight = window.innerHeight;
 
-          // Hold on the first frame until the section top reaches the viewport top
-          if (rect.top > 0) {
-            currentFrame = 0;
-            frameImg.src = frames[0];
-            ticking = false;
-            return;
-          }
+          // Calculate scroll progress through the section
+          // Animation starts when section enters viewport and ends when it exits
+          const scrollStart = viewportHeight;
+          const scrollEnd = -sectionHeight;
+          const scrollRange = scrollStart - scrollEnd;
+          const scrollProgress = (scrollStart - sectionTop) / scrollRange;
 
-          // Progress from top hitting viewport (rect.top=0) to well past viewport; faster progression with shorter span
-          const scrollRange = sectionHeight * 0.8; // shorter span for quicker animation
-          const progressRaw = -rect.top / scrollRange;
-          const scrollProgress = Math.max(0, Math.min(1, progressRaw));
+          // Clamp between 0 and 1
+          const progress = Math.max(0, Math.min(1, scrollProgress));
 
-          // Map scroll progress to frame index
-          const frameIndex = Math.floor(scrollProgress * (frames.length - 1));
+          // Map to frame index
+          const frameIndex = Math.floor(progress * (frames.length - 1));
 
-          // Update image if frame changed
+          // Update frame if changed
           if (
             frameIndex !== currentFrame &&
             frameIndex >= 0 &&
