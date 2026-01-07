@@ -1,13 +1,13 @@
 const projectsData = {
     spider: {
         title: "Cass Bay",
-        category: "drilling, extreme",
+        category: "drilling",
         year: "2025",
         location: "Christchurch, Canterbury",
-        status: "Completed",
+        status: "Rock Control",
         visible: true,
         description:
-            "Specialized spider digger work on challenging terrain with tight access needs.",
+            "Utilising our 9t Euromach spider digger with our custom made attachment to support a Marini pneumatic rock drill; we installed 15xRB25 rock anchors into 90mm diameter holes, 6m lengths. 10m height slope, very restricted access (1 carpark). Zero traffic disruption during the operation.",
         images: [
             "static/img/projects/Cass Bay/cassbay_drilling.jpg",
             "static/img/projects/Cass Bay/cassbay_driller.jpg",
@@ -93,7 +93,7 @@ const projectsData = {
     },
     services: {
         title: "Drilling Services",
-        category: "drilling, services",
+        category: "drilling, rope access",
         year: "2025",
         location: "Kaikoura Region",
         status: "Planned",
@@ -108,7 +108,7 @@ const projectsData = {
     },
     technology: {
         title: "Spider Digger Technology",
-        category: "drilling, technology",
+        category: "drilling",
         year: "2025",
         location: "Canterbury",
         status: "Completed",
@@ -158,11 +158,10 @@ function renderDetails(data) {
         .map((t) => t.charAt(0).toUpperCase() + t.slice(1))
         .join(", ");
     details.innerHTML = `
-        <h6>Project Details</h6>
         <ul>
+            <li><strong>Client:</strong> ${data.status}</li>
             <li><strong>Location:</strong> ${data.location}</li>
             <li><strong>Category:</strong> ${catList}</li>
-            <li><strong>Status:</strong> ${data.status}</li>
             <li><strong>Year:</strong> ${data.year}</li>
         </ul>
         <h6>Description</h6>

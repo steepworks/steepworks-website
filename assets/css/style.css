@@ -983,6 +983,35 @@ footer {
     width: 16px;
 }
 
+/* Clickable image open indicator for service cards */
+.service-image-wrapper {
+    position: relative;
+}
+
+.image-open-indicator {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    line-height: 1;
+    pointer-events: none; /* do not block clicks on the image */
+    box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.service-card:hover .image-open-indicator {
+    background: rgba(0, 0, 0, 0.75);
+    transform: translateY(-1px);
+}
+
 .services-header {
     background: linear-gradient(135deg, #008e44 0%, #006633 100%);
     color: white;
