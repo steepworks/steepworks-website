@@ -1,44 +1,48 @@
 const projectsData = {
     spider: {
-        title: "Spider Digger Operation",
+        title: "Cass Bay",
         category: "drilling, extreme",
         year: "2025",
         location: "Christchurch, Canterbury",
         status: "Completed",
+        visible: true,
         description:
             "Specialized spider digger work on challenging terrain with tight access needs.",
         images: [
-            "static/img/HQ/cassbay_drilling.jpg",
-            "static/img/HQ/drilling_detailed.jpg",
-            "static/img/HQ/show_spider.jpg",
+            "static/img/projects/Cass Bay/cassbay_drilling.jpg",
+            "static/img/projects/Cass Bay/cassbay_driller.jpg",
+            "static/img/projects/Cass Bay/cassbay_lateral.jpg",
         ],
     },
     slope: {
-        title: "Steep Slope Excavation",
+        title: "Alderson Valley",
         category: "excavation",
         year: "2024",
         location: "Banks Peninsula",
         status: "Completed",
+        visible: true,
         description:
             "Cutting and benching on steep ground with stability controls in place.",
         images: [
-            "static/img/HQ/big_tree_L2.JPG",
-            "static/img/HQ/excavation.jpg",
-            "static/img/HQ/uneven_road.jpg",
+            "static/img/projects/Alderson Valley/big_tree_L.JPG",
+            "static/img/projects/Alderson Valley/Harvey_farm_steep_HQ.jpg",
+            "static/img/projects/Alderson Valley/uneven_road.jpg",
+            "static/img/projects/Alderson Valley/belmat_sfondo.jpg",
         ],
     },
     drilling: {
-        title: "Drilling Project",
+        title: "Riordan Creek",
         category: "drilling",
         year: "2024",
         location: "Canterbury",
         status: "In Progress",
+        visible: true,
         description:
             "Production drilling with slope-safe positioning and spoil control.",
         images: [
-            "static/img/HQ/cassbay_driller.jpg",
-            "static/img/HQ/cassbay_lateral.jpg",
-            "static/img/HQ/Harvey_farm_steep_HQ.jpg",
+            "static/img/projects/Cass Bay/cassbay_driller.jpg",
+            "static/img/projects/Cass Bay/cassbay_lateral.jpg",
+            "static/img/projects/Cass Bay/Harvey_farm_steep_HQ.jpg",
         ],
     },
     trenching: {
@@ -47,6 +51,7 @@ const projectsData = {
         year: "2023",
         location: "Canterbury",
         status: "Completed",
+        visible: false,
         description:
             "Service trenching on uneven terrain with erosion protection measures.",
         images: [
@@ -61,6 +66,7 @@ const projectsData = {
         year: "2023",
         location: "Christchurch",
         status: "Completed",
+        visible: false,
         description:
             "Sculpting, planting prep, and access shaping for premium residential terrain.",
         images: [
@@ -75,6 +81,7 @@ const projectsData = {
         year: "2024",
         location: "Canterbury",
         status: "In Progress",
+        visible: false,
         description:
             "Grading, shaping, and planting berms with low-impact machinery.",
         images: [
@@ -89,6 +96,7 @@ const projectsData = {
         year: "2025",
         location: "Kaikoura Region",
         status: "Planned",
+        visible: false,
         description:
             "Rope-assisted drilling for remote slopes with minimal footprint.",
         images: [
@@ -103,6 +111,7 @@ const projectsData = {
         year: "2025",
         location: "Canterbury",
         status: "Completed",
+        visible: false,
         description:
             "Showcase of spider digger versatility on technical hillside work.",
         images: [
@@ -112,6 +121,26 @@ const projectsData = {
         ],
     },
 };
+
+// Function to apply project visibility based on the visible property
+function applyProjectVisibility() {
+    Object.keys(projectsData).forEach((key) => {
+        const project = projectsData[key];
+        const projectCard = document.querySelector(
+            `.project-card-custom[data-project="${key}"]`
+        );
+        if (projectCard) {
+            const projectItem = projectCard.closest(".project-item");
+            if (projectItem) {
+                if (project.visible === false) {
+                    projectItem.style.display = "none";
+                } else {
+                    projectItem.style.display = "";
+                }
+            }
+        }
+    });
+}
 
 let currentProjectKey = null;
 let currentImageIndex = 0;
@@ -280,6 +309,16 @@ document.addEventListener('DOMContentLoaded', function() {
             const filterValue = this.getAttribute('data-filter').toLowerCase();
 
             projectItems.forEach(item => {
+                const projectCard = item.querySelector('.project-card-custom');
+                const projectKey = projectCard ? projectCard.getAttribute('data-project') : null;
+                const projectData = projectKey ? projectsData[projectKey] : null;
+                
+                // Check if project is visible in data
+                if (projectData && projectData.visible === false) {
+                    item.style.display = 'none';
+                    return;
+                }
+                
                 const categories = (item.getAttribute('data-category') || '')
                     .toLowerCase()
                     .split(',')
@@ -300,6 +339,9 @@ document.addEventListener('DOMContentLoaded', function() {
         item.style.transform = 'translateY(20px)';
         item.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     });
+
+    // Apply project visibility based on visible property
+    applyProjectVisibility();
 
     // Apply initial filter state on load (respects any preset active button) and reveal immediately
     const initialFilter = document.querySelector('[data-filter].active') || filterButtons[0];

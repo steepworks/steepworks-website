@@ -1,4 +1,23 @@
 <!DOCTYPE html>
+<!--
+  HOW TO SHOW/HIDE PROJECT CARDS:
+  
+  To control which project cards are visible on this page, edit the file:
+  assets/js/projects.js
+  
+  Each project in the projectsData object has a "visible" property:
+  - Set visible: true  to show the project card
+  - Set visible: false to hide the project card
+  
+  Example: To hide the "Drilling Project", find it in projects.js and change:
+    drilling: {
+        title: "Drilling Project",
+        visible: false,  // <-- Change this to hide the card
+        ...
+    }
+  
+  Save the file and refresh the page to see the changes.
+-->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -334,11 +353,11 @@
             >
               <div class="project-card-custom" data-project="spider">
                 <img
-                  src="static/img/HQ/cassbay_drilling.jpg"
-                  alt="Spider Digger Operation"
+                  src="static/img/projects/Cass Bay/cassbay_drilling.jpg"
+                  alt="Cass Bay"
                 />
                 <div class="project-overlay-top">
-                  <h4 class="project-title">Spider Digger Operation</h4>
+                  <h4 class="project-title">Cass Bay</h4>
                 </div>
                 <div class="project-overlay-bottom">
                   <span class="badge brand-green-bg">Drilling</span>
@@ -352,11 +371,11 @@
             >
               <div class="project-card-custom" data-project="slope">
                 <img
-                  src="static/img/HQ/big_tree_L2.JPG"
-                  alt="Steep Slope Excavation"
+                  src="static/img/projects/Alderson Valley/big_tree_L.JPG"
+                  alt="Alderson Valley"
                 />
                 <div class="project-overlay-top">
-                  <h4 class="project-title">Steep Slope Excavation</h4>
+                  <h4 class="project-title">Alderson Valley</h4>
                 </div>
                 <div class="project-overlay-bottom">
                   <span class="badge brand-green-bg">Excavation</span>
@@ -369,11 +388,11 @@
             >
               <div class="project-card-custom" data-project="drilling">
                 <img
-                  src="static/img/HQ/cassbay_driller.jpg"
-                  alt="Drilling Project"
+                  src="static/img/projects/Cass Bay/cassbay_driller.jpg"
+                  alt="Riordan Creek"
                 />
                 <div class="project-overlay-top">
-                  <h4 class="project-title">Drilling Project</h4>
+                  <h4 class="project-title">Riordan Creek</h4>
                 </div>
                 <div class="project-overlay-bottom">
                   <span class="badge brand-green-bg">Drilling</span>
