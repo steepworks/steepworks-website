@@ -1,10 +1,10 @@
 const projectsData = {
     spider: {
         title: "Cass Bay",
-        category: "drilling",
+        category: "drilling, rope access",
         year: "2025",
         location: "Christchurch, Canterbury",
-        status: "Rock Control",
+        client: "Rock Control",
         visible: true,
         description:
             "Utilising our 9t Euromach spider digger with our custom made attachment to support a Marini pneumatic rock drill; we installed 15xRB25 rock anchors into 90mm diameter holes, 6m lengths. 10m height slope, very restricted access (1 carpark). Zero traffic disruption during the operation.",
@@ -13,31 +13,36 @@ const projectsData = {
             "static/img/projects/Cass Bay/cassbay_driller.webp",
             "static/img/projects/Cass Bay/cassbay_lateral.webp",
             "static/img/projects/Cass Bay/drilling_detailed.webp",
+            "static/img/projects/Cass Bay/Cass_bay_drilling_back.webp",
+            "static/img/projects/Cass Bay/Cass_bay_drilling_low.webp",
         ],
     },
     slope: {
         title: "Alderson Valley",
-        category: "excavation",
+        category: "excavation, extreme",
         year: "2024",
-        location: "Banks Peninsula",
-        status: "Completed",
+        location: "Port Hills, Canterbury",
+        client: "Harvey Harmstrong",
         visible: true,
         description:
-            "Cutting and benching on steep ground with stability controls in place.",
+            "A fallen tree located on a 35‑degree slope was safely removed, followed by the creation of a controlled access route to reach and process a second tree further upslope.\nA 6,000‑litre repurposed train tank was subsequently installed below ground level to provide dedicated emergency water storage for fire protection.\nAll activities were carried out with minimal ground disturbance, without the need for road construction or benching, made possible by the spider excavator’s independently articulated legs.",
         images: [
             "static/img/projects/Alderson Valley/big_tree_L.webp",
-            "static/img/projects/Alderson Valley/uneven_road.webp",
-            "static/img/projects/Alderson Valley/belmat_sfondo.webp",
+            "static/img/projects/Alderson Valley/P_20241019_155713.webp",
             "static/img/projects/Alderson Valley/FallenTree_side.jpg",
+            "static/img/projects/Alderson Valley/uneven_road.webp",
             "static/img/projects/Alderson Valley/spider_Behind_tank.jpg",
+            "static/img/projects/Alderson Valley/P_20240901_153100.webp",
+            "static/img/projects/Alderson Valley/P_20241005_164046.webp",
+            "static/img/projects/Alderson Valley/PXL_20260109_031550040.webp",
         ],
     },
     drilling: {
         title: "Riordan Creek",
-        category: "drilling",
-        year: "2024",
-        location: "Canterbury",
-        status: "In Progress",
+        category: "drilling, rope access",
+        year: "2025",
+        location: "Lewis Pass, Canterbury",
+        client: "Rock Control",
         visible: true,
         description:
             "Production drilling with slope-safe positioning and spoil control.",
@@ -50,7 +55,7 @@ const projectsData = {
         category: "excavation, extreme",
         year: "2023",
         location: "Canterbury",
-        status: "Completed",
+        client: "Completed",
         visible: false,
         description:
             "Service trenching on uneven terrain with erosion protection measures.",
@@ -65,7 +70,7 @@ const projectsData = {
         category: "extreme, landscaping",
         year: "2023",
         location: "Christchurch",
-        status: "Completed",
+        client: "Completed",
         visible: false,
         description:
             "Sculpting, planting prep, and access shaping for premium residential terrain.",
@@ -80,7 +85,7 @@ const projectsData = {
         category: "extreme, landscaping",
         year: "2024",
         location: "Canterbury",
-        status: "In Progress",
+        client: "In Progress",
         visible: false,
         description:
             "Grading, shaping, and planting berms with low-impact machinery.",
@@ -93,7 +98,7 @@ const projectsData = {
         category: "drilling, rope access",
         year: "2025",
         location: "Kaikoura Region",
-        status: "Planned",
+        client: "Planned",
         visible: false,
         description:
             "Rope-assisted drilling for remote slopes with minimal footprint.",
@@ -108,7 +113,7 @@ const projectsData = {
         category: "drilling",
         year: "2025",
         location: "Canterbury",
-        status: "Completed",
+        client: "Completed",
         visible: false,
         description:
             "Showcase of spider digger versatility on technical hillside work.",
@@ -121,6 +126,39 @@ const projectsData = {
 };
 
 // Function to apply project visibility based on the visible property
+// Function to update project card tags based on category
+function updateProjectTags() {
+    Object.keys(projectsData).forEach((key) => {
+        const project = projectsData[key];
+        const projectCard = document.querySelector(
+            `.project-card-custom[data-project="${key}"]`
+        );
+        if (projectCard) {
+            const projectItem = projectCard.closest('.project-item');
+            if (projectItem) {
+                projectItem.setAttribute('data-category', project.category);
+            }
+            const overlayBottom = projectCard.querySelector('.project-overlay-bottom');
+            if (overlayBottom) {
+                // Remove all existing badges
+                overlayBottom.innerHTML = '';
+                // Add a badge for each category
+                (project.category || '').split(',').map(t => t.trim()).filter(Boolean).forEach(cat => {
+                    const span = document.createElement('span');
+                    span.className = 'badge brand-green-bg';
+                    span.textContent = cat.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+                    overlayBottom.appendChild(span);
+                });
+            }
+        }
+    });
+}
+
+// Call this after DOM is loaded and after cards are rendered
+document.addEventListener('DOMContentLoaded', () => {
+    updateProjectTags();
+    applyProjectVisibility();
+});
 function applyProjectVisibility() {
     Object.keys(projectsData).forEach((key) => {
         const project = projectsData[key];
@@ -156,7 +194,7 @@ function renderDetails(data) {
         .join(", ");
     details.innerHTML = `
         <ul>
-            <li><strong>Client:</strong> ${data.status}</li>
+            <li><strong>Client:</strong> ${data.client}</li>
             <li><strong>Location:</strong> ${data.location}</li>
             <li><strong>Category:</strong> ${catList}</li>
             <li><strong>Year:</strong> ${data.year}</li>
@@ -259,7 +297,7 @@ function setBadgesFromCategory() {
             .split(",")
             .map((c) => c.trim())
             .filter(Boolean)
-            .map((c) => c.charAt(0).toUpperCase() + c.slice(1));
+            .map((c) => c.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' '));
         const badgeWrap = card.querySelector(".project-overlay-bottom");
         if (badgeWrap && cats.length) {
             badgeWrap.innerHTML = cats

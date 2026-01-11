@@ -138,7 +138,15 @@ body {
 
 @media (max-width: 991.98px) {
     .navbar.bg-dark {
-        background: #212529 !important;
+        background: rgba(33, 37, 41, 0.85) !important; /* Slightly transparent dark */
+        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+    }
+    .navbar-brand img {
+        background: rgba(255,255,255,0.7);
+        border-radius: 8px;
+        padding: 2px 8px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        max-height: 48px;
     }
 }
 
@@ -227,6 +235,19 @@ body {
     transition: clip-path 0.6s ease, background 0.6s ease;
 }
 
+@media (max-width: 767.98px) {
+    /* Always show faded overlay on mobile, remove animation */
+    .hero-text-overlay {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%) !important;
+        clip-path: none !important;
+        transition: none !important;
+    }
+    .hero:hover .hero-text-overlay {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%) !important;
+        clip-path: none !important;
+        transition: none !important;
+    }
+}
 .hero-content {
     text-align: center;
     width: 100%;
