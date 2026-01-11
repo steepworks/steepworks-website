@@ -43,7 +43,7 @@ const projectsData = {
         year: "2025",
         location: "Lewis Pass, Canterbury",
         client: "Rock Control",
-        visible: true,
+        visible: false,
         description:
             "Production drilling with slope-safe positioning and spoil control.",
         images: [
