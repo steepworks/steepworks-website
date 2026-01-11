@@ -9,10 +9,10 @@ const projectsData = {
         description:
             "Utilising our 9t Euromach spider digger with our custom made attachment to support a Marini pneumatic rock drill; we installed 15xRB25 rock anchors into 90mm diameter holes, 6m lengths. 10m height slope, very restricted access (1 carpark). Zero traffic disruption during the operation.",
         images: [
-            "static/img/projects/Cass Bay/cassbay_drilling.jpg",
-            "static/img/projects/Cass Bay/cassbay_driller.jpg",
-            "static/img/projects/Cass Bay/cassbay_lateral.jpg",
-            "static/img/projects/Cass Bay/drilling_detailed.jpg",
+            "static/img/projects/Cass Bay/cassbay_drilling.webp",
+            "static/img/projects/Cass Bay/cassbay_driller.webp",
+            "static/img/projects/Cass Bay/cassbay_lateral.webp",
+            "static/img/projects/Cass Bay/drilling_detailed.webp",
         ],
     },
     slope: {
@@ -25,10 +25,11 @@ const projectsData = {
         description:
             "Cutting and benching on steep ground with stability controls in place.",
         images: [
-            "static/img/projects/Alderson Valley/big_tree_L.JPG",
-            "static/img/projects/Alderson Valley/Harvey_farm_steep_HQ.jpg",
-            "static/img/projects/Alderson Valley/uneven_road.jpg",
-            "static/img/projects/Alderson Valley/belmat_sfondo.jpg",
+            "static/img/projects/Alderson Valley/big_tree_L.webp",
+            "static/img/projects/Alderson Valley/uneven_road.webp",
+            "static/img/projects/Alderson Valley/belmat_sfondo.webp",
+            "static/img/projects/Alderson Valley/FallenTree_side.jpg",
+            "static/img/projects/Alderson Valley/spider_Behind_tank.jpg",
         ],
     },
     drilling: {
@@ -41,9 +42,7 @@ const projectsData = {
         description:
             "Production drilling with slope-safe positioning and spoil control.",
         images: [
-            "static/img/projects/Cass Bay/cassbay_driller.jpg",
-            "static/img/projects/Cass Bay/cassbay_lateral.jpg",
-            "static/img/projects/Cass Bay/Harvey_farm_steep_HQ.jpg",
+            "static/img/projects/Riordan creek/Val_rope.webp",
         ],
     },
     trenching: {
@@ -56,9 +55,9 @@ const projectsData = {
         description:
             "Service trenching on uneven terrain with erosion protection measures.",
         images: [
-            "static/img/HQ/littlequarry_climb.jpg",
-            "static/img/HQ/Gorse_climb_L.jpg",
-            "static/img/HQ/prequarry_L.jpg",
+            "static/img/projects/Alderson Valley/big_tree_L.webp",
+            "static/img/projects/Alderson Valley/uneven_road.webp",
+            "static/img/projects/Alderson Valley/belmat_sfondo.webp",
         ],
     },
     landscaping1: {
@@ -71,9 +70,9 @@ const projectsData = {
         description:
             "Sculpting, planting prep, and access shaping for premium residential terrain.",
         images: [
-            "static/img/HQ/front_artistic.jpg",
-            "static/img/HQ/fairysgrove.jpg",
-            "static/img/HQ/belmat_sfondo.jpg",
+            "static/img/HD/front_artistic.webp",
+            "static/img/HD/fairysgrove.webp",
+            "static/img/projects/Alderson Valley/belmat_sfondo.webp",
         ],
     },
     landscaping2: {
@@ -86,9 +85,7 @@ const projectsData = {
         description:
             "Grading, shaping, and planting berms with low-impact machinery.",
         images: [
-            "static/img/HQ/little_quarry_us.JPG",
-            "static/img/HQ/pexels2.jpg",
-            "static/img/HQ/pexels3.jpg",
+            "static/img/HD/little_quarry_us.webp",
         ],
     },
     services: {
@@ -101,9 +98,9 @@ const projectsData = {
         description:
             "Rope-assisted drilling for remote slopes with minimal footprint.",
         images: [
-            "static/img/HQ/kaikoura_rope_access.jpg",
-            "static/img/HQ/prequarry_climb.jpg",
-            "static/img/HQ/Bauma.jpg",
+            "static/img/HD/kaikoura_rope_access.webp",
+            "static/img/HD/prequarry_climb.webp",
+            "static/img/HD/Bauma.webp",
         ],
     },
     technology: {
@@ -116,9 +113,9 @@ const projectsData = {
         description:
             "Showcase of spider digger versatility on technical hillside work.",
         images: [
-            "static/img/HQ/show_us.jpg",
-            "static/img/HQ/Val_face.JPG",
-            "static/img/HQ/Droneview_L.JPG",
+            "static/img/HD/show_us.webp",
+            "static/img/HD/Val_face.webp",
+            "static/img/HD/Droneview_L.webp",
         ],
     },
 };
