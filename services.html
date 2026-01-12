@@ -35,9 +35,71 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="robots" content="index, follow" />
   </head>
   <body>
     <div id="header-container"></div>
+
+    <!-- Service Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Specialist Excavation, Drilling, Rope Access",
+        "provider": {
+          "@type": "Organization",
+          "name": "Steep Works",
+          "url": "https://steepworks.co.nz/"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Canterbury, NZ"
+        },
+        "description": "Steep Works provides specialist excavation, drilling, and rope access services for challenging terrain, including earthworks, anchoring, landslide stabilization, and vegetation removal.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Service Catalog",
+          "itemListElement": [
+            {
+              "@type": "OfferCatalog",
+              "name": "Excavation & Earthworks"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Drilling & Anchoring"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Landslide Stabilisation"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Rope Access Operations"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Demolition & Removal"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Vegetation Removal & Landscaping"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Waterways Maintenance"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Construction Support"
+            },
+            {
+              "@type": "OfferCatalog",
+              "name": "Emergency Response"
+            }
+          ]
+        }
+      }
+    </script>
 
     <main>
       <!-- Page Header -->
@@ -45,7 +107,7 @@
         <div class="container">
           <h1>Our Services</h1>
           <div class="decorative-line"></div>
-          <p>Professional solutions for your projects</p>
+          <h2>Professional solutions for your projects</h2>
         </div>
       </section>
 
@@ -55,7 +117,7 @@
             <div class="col-lg-6 mb-4 mb-lg-0">
               <img
                 src="static/img/HD/Little_quarry_front.webp"
-                alt="Spider digger capabilities"
+                alt="Spider digger operating on a steep quarry front"
                 class="img-fluid rounded shadow"
                 style="transition: transform 0.3s ease"
                 onmouseover="this.style.transform='scale(1.03)'"
@@ -131,7 +193,9 @@
         <div class="container">
           <div class="section-intro">
             <h2>What We Offer</h2>
-            <p>A comprehensive range of services to meet your specific needs</p>
+            <h3>
+              A comprehensive range of services to meet your specific needs
+            </h3>
           </div>
 
           <div class="row g-4">
@@ -141,7 +205,7 @@
                 <div class="service-image-wrapper">
                   <img
                     src="static/img/HD/excavation.webp"
-                    alt="Excavation & Earthworks"
+                    alt="Excavation and earthworks on hillside"
                     style="
                       width: 100%;
                       height: 200px;
@@ -220,7 +284,7 @@
                 <div class="service-image-wrapper">
                   <img
                     src="static/img/projects/Cass Bay/cassbay_drilling.webp"
-                    alt="Drilling & Anchoring"
+                    alt="Drilling and anchoring in Cass Bay"
                     style="
                       width: 100%;
                       height: 200px;
@@ -299,7 +363,7 @@
                 <div class="service-image-wrapper">
                   <img
                     src="static/img/HD/Marco_steep.jpeg"
-                    alt="Landslide Stabilization"
+                    alt="Landslide stabilization and rockfall mitigation"
                     style="
                       width: 100%;
                       height: 200px;
@@ -378,7 +442,7 @@
                 <div class="service-image-wrapper">
                   <img
                     src="static/img/HD/Val_rope.webp"
-                    alt="Rope Access Operation"
+                    alt="Technician performing rope access operation"
                     style="
                       width: 100%;
                       height: 200px;
@@ -457,7 +521,7 @@
                 <div class="service-image-wrapper">
                   <img
                     src="static/img/HD/uneven_road.webp"
-                    alt="Demolition & Removal"
+                    alt="Demolition and removal of structures on uneven road"
                     style="
                       width: 100%;
                       height: 200px;
@@ -536,7 +600,7 @@
                 <div class="service-image-wrapper">
                   <img
                     src="static/img/HD/big_tree_L2.webp"
-                    alt="Vegetation Removal & Landscaping"
+                    alt="Vegetation removal and landscaping with spider digger"
                     style="
                       width: 100%;
                       height: 200px;
@@ -617,7 +681,7 @@
                 <div class="service-image-wrapper">
                   <img
                     src="static/img/HD/Marco_river.jpg"
-                    alt="Waterways Maintenance"
+                    alt="Waterways maintenance and stream clearing"
                     style="
                       width: 100%;
                       height: 200px;
@@ -696,7 +760,7 @@
                 <div class="service-image-wrapper">
                   <img
                     src="static/img/HD/Marco_Drainage.jpeg"
-                    alt="Construction Support"
+                    alt="Construction support and drainage work"
                     style="
                       width: 100%;
                       height: 200px;
@@ -775,7 +839,7 @@
                 <div class="service-image-wrapper">
                   <img
                     src="static/img/HD/Marco_vegetation.jpeg"
-                    alt="Emergency Response"
+                    alt="Emergency response and vegetation management"
                     style="
                       width: 100%;
                       height: 200px;
@@ -885,7 +949,12 @@
           >
             <span class="btn-close btn-close-white"></span>
           </button>
-          <img id="modalImage" src="" alt="" style="border-radius: 8px" />
+          <img
+            id="modalImage"
+            src=""
+            alt="Service modal image"
+            style="border-radius: 8px"
+          />
         </div>
       </div>
     </div>

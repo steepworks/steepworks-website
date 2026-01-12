@@ -35,6 +35,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
     />
     <link rel="stylesheet" href="assets/css/style.css" />
+    <meta name="robots" content="index, follow" />
     <style>
       .about-header {
         background: linear-gradient(135deg, #008e44 0%, #006633 100%);
@@ -353,13 +354,34 @@
   <body>
     <div id="header-container"></div>
 
+    <!-- Service Structured Data for SEO -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "serviceType": "Specialist Excavation, Drilling, Rope Access",
+        "provider": {
+          "@type": "Organization",
+          "name": "Steep Works",
+          "url": "https://steepworks.co.nz/"
+        },
+        "areaServed": {
+          "@type": "AdministrativeArea",
+          "name": "Canterbury, NZ"
+        },
+        "description": "Steep Works provides specialist excavation, drilling, and rope access services for challenging terrain, including earthworks, anchoring, landslide stabilization, and vegetation removal."
+      }
+    </script>
+
     <main>
       <!-- Green Banner -->
       <section class="services-header">
         <div class="container">
           <h1>About Steep Works</h1>
           <div class="decorative-line"></div>
-          <p>Steep site specialists delivering precise work in tough places</p>
+          <h2>
+            Steep site specialists delivering precise work in tough places
+          </h2>
         </div>
       </section>
 
@@ -369,17 +391,17 @@
           <div class="container image-gallery">
             <img
               src="static/img/HD/kaikoura_rope_access.webp"
-              alt="Kaikoura Rope Access"
+              alt="Technician performing rope access in Kaikoura"
               class="gallery-image"
             />
             <img
               src="static/img/HD/Bauma.webp"
-              alt="Bauma Exhibition"
+              alt="Steep Works at Bauma Exhibition"
               class="gallery-image"
             />
             <img
               src="static/img/HD/little_quarry_us2.webp"
-              alt="Little Quarry"
+              alt="Excavator working in Little Quarry"
               class="gallery-image"
               style="object-position: center 20%"
             />
@@ -450,7 +472,7 @@
               <div class="team-card">
                 <img
                   src="static/img/HD/Mattia_face.webp"
-                  alt="Mattia Belingheri"
+                  alt="Portrait of Mattia Belingheri, Director and Project Manager"
                   class="team-image"
                 />
                 <h3 class="team-name">Mattia Belingheri</h3>
@@ -477,7 +499,7 @@
               <div class="team-card">
                 <img
                   src="static/img/HD/Val_face.webp"
-                  alt="Valentina Piantoni"
+                  alt="Portrait of Valentina Piantoni, Director and Business Manager"
                   class="team-image"
                 />
                 <h3 class="team-name">Valentina Piantoni</h3>
