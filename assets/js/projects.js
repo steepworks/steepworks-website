@@ -1,5 +1,5 @@
 const projectsData = {
-    spider: {
+    cassBay: {
         title: "Cass Bay",
         category: "drilling, rope access",
         year: "2025",
@@ -17,12 +17,12 @@ const projectsData = {
             "static/img/projects/Cass Bay/Cass_bay_drilling_low.webp",
         ],
     },
-    slope: {
+    AldersonValley: {
         title: "Alderson Valley",
-        category: "excavation, extreme",
+        category: "excavation, extreme, landscaping",
         year: "2024",
         location: "Port Hills, Canterbury",
-        client: "Harvey Harmstrong",
+        client: "Harvey Armstrong",
         visible: true,
         description:
             "A fallen tree located on a 35‑degree slope was safely removed, followed by the creation of a controlled access route to reach and process a second tree further upslope.\nA 6,000‑litre repurposed train tank was subsequently installed below ground level to provide dedicated emergency water storage for fire protection.\nAll activities were carried out with minimal ground disturbance, without the need for road construction or benching, made possible by the spider excavator’s independently articulated legs.",
@@ -37,47 +37,66 @@ const projectsData = {
             "static/img/projects/Alderson Valley/PXL_20260109_031550040.webp",
         ],
     },
-    drilling: {
-        title: "Riordan Creek",
+    RoirdanCreek: {
+        title: "Roirdan Creek",
         category: "drilling, rope access",
         year: "2025",
         location: "Lewis Pass, Canterbury",
         client: "Rock Control",
-        visible: false,
+        visible: true,
         description:
-            "Production drilling with slope-safe positioning and spoil control.",
+            "Rope access drilling using a pneumatic Marini drill with top hammer and grout‑flush methodology. Drilled and installed over 120 T40 anchors, followed by testing. Additional work included scaling, air lancing, and meshing for stabilisation of the active slip.",
         images: [
-            "static/img/projects/Riordan creek/Val_rope.webp",
+            "static/img/HD/Roirdan/PXL_20260311_213306325_risultato.webp",
+            "static/img/HD/Roirdan/P_20251202_134819_risultato.webp",
+            "static/img/HD/Roirdan/PXL_20260303_022907949_risultato.webp",
+            "static/img/HD/Roirdan/P_20260126_152914_risultato.webp",
+            "static/img/HD/Roirdan/P_20260319_153301_risultato.webp",
         ],
     },
-    trenching: {
-        title: "Trenching Work",
-        category: "excavation, extreme",
-        year: "2023",
-        location: "Canterbury",
-        client: "Completed",
-        visible: false,
+    LighthouseRoad: {
+        title: "Lighthouse Road",
+        category: "excavation, extreme, drilling",
+        year: "2026",
+        location: "Akaroa, Canterbury",
+        client: "GSI New Zealand",
+        visible: true,
         description:
-            "Service trenching on uneven terrain with erosion protection measures.",
+            "Spider digger used to install 11 × 30 m drains across two locations on slopes between 10 and 35 degrees. The machine provided access without disturbing vegetation in the area, and the work was completed without traffic disruption, which would have occurred if drilling had been carried out from the top with an excavator. Assisted with lowering two manholes from the road to the drainage locations.",
         images: [
-            "static/img/projects/Alderson Valley/big_tree_L.webp",
-            "static/img/projects/Alderson Valley/uneven_road.webp",
-            "static/img/projects/Alderson Valley/belmat_sfondo.webp",
+            "static/img/HD/Akaroa/B0CA0F78C672181537E0125DC8988954_risultato.webp",
+            "static/img/HD/Akaroa/PXL_20260421_025614766_risultato.webp",
+            "static/img/HD/Akaroa/PXL_20260422_014346992_risultato.webp",
+            "static/img/HD/Akaroa/PXL_20260422_031735033_risultato.webp",
+            "static/img/HD/Akaroa/PXL_20260506_194440848_risultato.webp",
+            "static/img/HD/Akaroa/PXL_20260507_015428336_risultato.webp",
+            "static/img/HD/Akaroa/PXL_20260508_013035941_risultato.webp",
+            "static/img/HD/Akaroa/PXL_20260508_015512453_risultato.webp",
+            "static/img/HD/Akaroa/PXL_20260508_025418358_risultato.webp",
         ],
     },
-    landscaping1: {
-        title: "Landscaping Project",
-        category: "extreme, landscaping",
-        year: "2023",
-        location: "Christchurch",
-        client: "Completed",
-        visible: false,
+    KenepuruRoad: {
+        title: "Kenepuru Road",
+        category: "extreme, drilling",
+        year: "2026",
+        location: "Marlborough Sounds, Marlborough",
+        client: "Rock Control",
+        visible: true,
         description:
-            "Sculpting, planting prep, and access shaping for premium residential terrain.",
+            "Spider digger accessed  the bottom of the slip and carried out minor vegetation clearing. This was followed by drilling and installation of 160 RB25 bars, each 6 m long, using DTH methods with a hydraulic drill mast mounted on our drill attachment. Work was completed on 35–45 degree slopes, with a 5T winch installed on the spider digger as a backup to increase safety and overall grip on the slope.",
         images: [
-            "static/img/HD/front_artistic.webp",
-            "static/img/HD/fairysgrove.webp",
-            "static/img/projects/Alderson Valley/belmat_sfondo.webp",
+            "static/img/HD/Te Mahia/PXL_20260527_044934266_risultato.webp",
+            "static/img/HD/Te Mahia/P_20260526_153247_risultato.webp",
+            "static/img/HD/Te Mahia/P_20260611_154304_risultato.webp",
+            "static/img/HD/Te Mahia/P_20260618_092129_risultato.webp",
+            "static/img/HD/Te Mahia/PXL_20260519_031608582_risultato.webp",
+            "static/img/HD/Te Mahia/PXL_20260521_214908227_risultato.webp",
+            "static/img/HD/Te Mahia/IMG_20260616_123543_932_risultato.webp",
+            "static/img/HD/Te Mahia/PXL_20260610_230314485_risultato.webp",
+            "static/img/HD/Te Mahia/PXL_20260617_013316165_risultato.webp",
+            "static/img/HD/Te Mahia/PXL_20260623_000812431_risultato.webp",
+            "static/img/HD/Te Mahia/PXL_20260624_223744127_risultato.webp",
+            "static/img/HD/Te Mahia/Video Project 2.mp4",
         ],
     },
     landscaping2: {
@@ -154,8 +173,36 @@ function updateProjectTags() {
     });
 }
 
+function sortProjectsByYear(order = "desc") {
+    const grid = document.querySelector(".projects-grid");
+    if (!grid) return;
+
+    const items = Array.from(grid.querySelectorAll(".project-item"));
+    const direction = order === "asc" ? 1 : -1;
+
+    items.sort((a, b) => {
+        const keyA = a.querySelector(".project-card-custom")?.dataset.project;
+        const keyB = b.querySelector(".project-card-custom")?.dataset.project;
+        const yearA = parseInt(projectsData[keyA]?.year, 10);
+        const yearB = parseInt(projectsData[keyB]?.year, 10);
+        const safeYearA = Number.isNaN(yearA) ? -Infinity : yearA;
+        const safeYearB = Number.isNaN(yearB) ? -Infinity : yearB;
+
+        if (safeYearA !== safeYearB) {
+            return (safeYearA - safeYearB) * direction;
+        }
+
+        const titleA = (projectsData[keyA]?.title || "").toLowerCase();
+        const titleB = (projectsData[keyB]?.title || "").toLowerCase();
+        return titleA.localeCompare(titleB);
+    });
+
+    items.forEach((item) => grid.appendChild(item));
+}
+
 // Call this after DOM is loaded and after cards are rendered
 document.addEventListener('DOMContentLoaded', () => {
+    sortProjectsByYear("desc");
     updateProjectTags();
     applyProjectVisibility();
 });
@@ -183,6 +230,10 @@ let currentImageIndex = 0;
 let fadeOutTimeout = null;
 let fadeInTimeout = null;
 
+function isVideoMedia(src) {
+    return /\.(mp4|webm|ogg|mov)$/i.test(src || "");
+}
+
 function renderDetails(data) {
     const details = document.getElementById("projectDetails");
     if (!details || !data) return;
@@ -209,13 +260,20 @@ function renderThumbnails(data) {
     if (!container || !data) return;
     container.innerHTML = "";
     data.images.forEach((src, idx) => {
-        const img = document.createElement("img");
-        img.src = src;
-        img.alt = `${data.title} ${idx + 1}`;
-        img.className = "thumbnail" + (idx === 0 ? " active" : "");
-        img.dataset.index = idx;
-        img.addEventListener("click", () => changeModalImage(idx));
-        container.appendChild(img);
+        const media = document.createElement(isVideoMedia(src) ? "video" : "img");
+        if (isVideoMedia(src)) {
+            media.src = src;
+            media.muted = true;
+            media.playsInline = true;
+            media.preload = "metadata";
+        } else {
+            media.src = src;
+            media.alt = `${data.title} ${idx + 1}`;
+        }
+        media.className = "thumbnail" + (idx === 0 ? " active" : "");
+        media.dataset.index = idx;
+        media.addEventListener("click", () => changeModalImage(idx));
+        container.appendChild(media);
     });
 }
 
@@ -224,8 +282,33 @@ function renderModalImage(index) {
     if (!data) return;
     currentImageIndex = index;
     const mainImg = document.getElementById("modalMainImage");
+    const mainVideo = document.getElementById("modalMainVideo");
     const image = data.images[index];
-    if (!mainImg || !image) return;
+    if (!mainImg || !mainVideo || !image) return;
+
+    const mediaIsVideo = isVideoMedia(image);
+
+    if (mediaIsVideo) {
+        if (fadeOutTimeout) clearTimeout(fadeOutTimeout);
+        if (fadeInTimeout) clearTimeout(fadeInTimeout);
+        mainImg.classList.remove("fade-out", "fade-in");
+        mainImg.style.display = "none";
+        mainVideo.style.display = "block";
+        mainVideo.src = image;
+        mainVideo.currentTime = 0;
+        mainVideo.play().catch(() => {});
+        document.querySelectorAll(".thumbnail").forEach((thumb, i) => {
+            thumb.classList.toggle("active", i === index);
+        });
+        return;
+    }
+
+    if (!mainVideo.paused) {
+        mainVideo.pause();
+    }
+    mainVideo.style.display = "none";
+    mainVideo.removeAttribute("src");
+    mainImg.style.display = "block";
 
     if (fadeOutTimeout) clearTimeout(fadeOutTimeout);
     if (fadeInTimeout) clearTimeout(fadeInTimeout);
@@ -391,5 +474,17 @@ document.addEventListener('DOMContentLoaded', function() {
             openProject(card.dataset.project);
         });
     });
+
+    const modalEl = document.getElementById("projectModal");
+    if (modalEl) {
+        modalEl.addEventListener("hidden.bs.modal", () => {
+            const mainVideo = document.getElementById("modalMainVideo");
+            if (mainVideo) {
+                mainVideo.pause();
+                mainVideo.currentTime = 0;
+            }
+        });
+    }
+
     setBadgesFromCategory();
 });

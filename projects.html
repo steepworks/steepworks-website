@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <!--
   HOW TO SHOW/HIDE PROJECT CARDS:
   
@@ -186,11 +186,14 @@
         position: relative;
       }
 
-      .modal-image-section img {
+      .modal-image-section img,
+      .modal-image-section video {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: opacity 0.3s ease, transform 0.3s ease;
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
       }
 
       .modal-image-section img.fade-out {
@@ -370,7 +373,7 @@
               class="col-lg-6 col-md-6 col-sm-12 project-item"
               data-category="drilling"
             >
-              <div class="project-card-custom" data-project="spider">
+              <div class="project-card-custom" data-project="cassBay">
                 <img
                   src="static/img/projects/Cass Bay/cassbay_drilling.webp"
                   alt="Cass Bay drilling and rope access project"
@@ -389,7 +392,7 @@
               class="col-lg-6 col-md-6 col-sm-12 project-item"
               data-category="excavation"
             >
-              <div class="project-card-custom" data-project="slope">
+              <div class="project-card-custom" data-project="AldersonValley">
                 <img
                   src="static/img/projects/Alderson Valley/big_tree_L.webp"
                   alt="Alderson Valley excavation project"
@@ -406,13 +409,13 @@
               class="col-lg-6 col-md-6 col-sm-12 project-item"
               data-category="drilling"
             >
-              <div class="project-card-custom" data-project="drilling">
+              <div class="project-card-custom" data-project="RoirdanCreek">
                 <img
-                  src="static/img/projects/Riordan creek/Val_rope.webp"
-                  alt="Riordan Creek drilling project"
+                  src="static/img/HD/Roirdan/PXL_20260311_213306325_risultato.webp"
+                  alt="Roirdan Creek drilling project"
                 />
                 <div class="project-overlay-top">
-                  <h4 class="project-title">Riordan Creek</h4>
+                  <h4 class="project-title">Roirdan Creek</h4>
                 </div>
                 <div class="project-overlay-bottom">
                   <span class="badge brand-green-bg">Drilling</span>
@@ -423,13 +426,13 @@
               class="col-lg-6 col-md-6 col-sm-12 project-item"
               data-category="excavation, extreme"
             >
-              <div class="project-card-custom" data-project="trenching">
+              <div class="project-card-custom" data-project="LighthouseRoad">
                 <img
-                  src="static/img/HD/littlequarry_climb.webp"
-                  alt="Trenching work on steep terrain"
+                  src="static/img/HD/Akaroa/PXL_20260508_025418358_risultato.webp"
+                  alt="Lighthouse Road project on steep terrain"
                 />
                 <div class="project-overlay-top">
-                  <h4 class="project-title">Trenching Work</h4>
+                  <h4 class="project-title">Lighthouse Road</h4>
                 </div>
                 <div class="project-overlay-bottom">
                   <span class="badge brand-green-bg">Excavation</span>
@@ -441,13 +444,13 @@
               class="col-lg-6 col-md-6 col-sm-12 project-item"
               data-category="extreme, landscaping"
             >
-              <div class="project-card-custom" data-project="landscaping1">
+              <div class="project-card-custom" data-project="KenepuruRoad">
                 <img
-                  src="static/img/HD/front_artistic.webp"
-                  alt="Landscaping project with spider digger"
+                  src="static/img/HD/Te Mahia/PXL_20260527_044934266_risultato.webp"
+                  alt="Kenepuru Road project with spider digger"
                 />
                 <div class="project-overlay-top">
-                  <h4 class="project-title">Landscaping Project</h4>
+                  <h4 class="project-title">Kenepuru Road</h4>
                 </div>
                 <div class="project-overlay-bottom">
                   <span class="badge brand-green-bg">Extreme</span>
@@ -564,6 +567,12 @@
                   />
                 </button>
                 <img id="modalMainImage" src="" alt="Project modal image" />
+                <video
+                  id="modalMainVideo"
+                  controls
+                  playsinline
+                  style="display: none"
+                ></video>
                 <button
                   class="nav-arrow nav-arrow-right"
                   onclick="showNextImage(event)"

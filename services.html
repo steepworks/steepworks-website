@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -120,8 +120,8 @@
                 alt="Spider digger operating on a steep quarry front"
                 class="img-fluid rounded shadow"
                 style="transition: transform 0.3s ease"
-                onmouseover="this.style.transform='scale(1.03)'"
-                onmouseout="this.style.transform='scale(1)'"
+                onmouseover="this.style.transform = 'scale(1.03)'"
+                onmouseout="this.style.transform = 'scale(1)'"
               />
             </div>
             <div class="col-lg-6">
@@ -213,7 +213,12 @@
                       border-bottom: 1px solid #e9ecef;
                       cursor: pointer;
                     "
-                    onclick="openImageModal('static/img/HD/excavation.webp', 'Excavation & Earthworks')"
+                    onclick="
+                      openImageModal(
+                        'static/img/HD/excavation.webp',
+                        'Excavation & Earthworks',
+                      )
+                    "
                   />
                   <span
                     class="image-open-indicator"
@@ -283,7 +288,7 @@
               <div class="service-card" style="background-color: white">
                 <div class="service-image-wrapper">
                   <img
-                    src="static/img/projects/Cass Bay/cassbay_drilling.webp"
+                    src="static/img/HD/Te Mahia/PXL_20260610_230314485_risultato.webp"
                     alt="Drilling and anchoring in Cass Bay"
                     style="
                       width: 100%;
@@ -292,7 +297,12 @@
                       border-bottom: 1px solid #e9ecef;
                       cursor: pointer;
                     "
-                    onclick="openImageModal('static/img/projects/Cass Bay/cassbay_drilling.webp', 'Drilling & Anchoring')"
+                    onclick="
+                      openImageModal(
+                        'static/img/HD/Te Mahia/PXL_20260610_230314485_risultato.webp',
+                        'Drilling & Anchoring',
+                      )
+                    "
                   />
                   <span
                     class="image-open-indicator"
@@ -371,7 +381,12 @@
                       border-bottom: 1px solid #e9ecef;
                       cursor: pointer;
                     "
-                    onclick="openImageModal('static/img/HD/Marco_steep.jpeg', 'Landslide Stabilization')"
+                    onclick="
+                      openImageModal(
+                        'static/img/HD/Marco_steep.jpeg',
+                        'Landslide Stabilization',
+                      )
+                    "
                   />
                   <span
                     class="image-open-indicator"
@@ -450,7 +465,12 @@
                       border-bottom: 1px solid #e9ecef;
                       cursor: pointer;
                     "
-                    onclick="openImageModal('static/img/HD/Val_rope.webp', 'Rope Access Operation')"
+                    onclick="
+                      openImageModal(
+                        'static/img/HD/Val_rope.webp',
+                        'Rope Access Operation',
+                      )
+                    "
                   />
                   <span
                     class="image-open-indicator"
@@ -529,7 +549,12 @@
                       border-bottom: 1px solid #e9ecef;
                       cursor: pointer;
                     "
-                    onclick="openImageModal('static/img/HD/uneven_road.webp', 'Demolition & Removal')"
+                    onclick="
+                      openImageModal(
+                        'static/img/HD/uneven_road.webp',
+                        'Demolition & Removal',
+                      )
+                    "
                   />
                   <span
                     class="image-open-indicator"
@@ -608,7 +633,12 @@
                       border-bottom: 1px solid #e9ecef;
                       cursor: pointer;
                     "
-                    onclick="openImageModal('static/img/HD/big_tree_L2.webp', 'Vegetation Removal & Landscaping')"
+                    onclick="
+                      openImageModal(
+                        'static/img/HD/big_tree_L2.webp',
+                        'Vegetation Removal & Landscaping',
+                      )
+                    "
                   />
                   <span
                     class="image-open-indicator"
@@ -689,7 +719,12 @@
                       border-bottom: 1px solid #e9ecef;
                       cursor: pointer;
                     "
-                    onclick="openImageModal('static/img/HD/Marco_river.jpg', 'Waterways Maintenance')"
+                    onclick="
+                      openImageModal(
+                        'static/img/HD/Marco_river.jpg',
+                        'Waterways Maintenance',
+                      )
+                    "
                   />
                   <span
                     class="image-open-indicator"
@@ -768,7 +803,12 @@
                       border-bottom: 1px solid #e9ecef;
                       cursor: pointer;
                     "
-                    onclick="openImageModal('static/img/HD/Marco_Drainage.jpeg', 'Construction Support')"
+                    onclick="
+                      openImageModal(
+                        'static/img/HD/Marco_Drainage.jpeg',
+                        'Construction Support',
+                      )
+                    "
                   />
                   <span
                     class="image-open-indicator"
@@ -847,7 +887,12 @@
                       border-bottom: 1px solid #e9ecef;
                       cursor: pointer;
                     "
-                    onclick="openImageModal('static/img/HD/Marco_vegetation.jpeg', 'Emergency Response')"
+                    onclick="
+                      openImageModal(
+                        'static/img/HD/Marco_vegetation.jpeg',
+                        'Emergency Response',
+                      )
+                    "
                   />
                   <span
                     class="image-open-indicator"
@@ -974,7 +1019,7 @@
         modalImage.alt = imageTitle;
 
         const modal = new bootstrap.Modal(
-          document.getElementById("imageModal")
+          document.getElementById("imageModal"),
         );
         modal.show();
       }
